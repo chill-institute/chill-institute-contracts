@@ -1,0 +1,30 @@
+version: v2
+managed:
+  enabled: true
+  disable:
+    - file_option: go_package_prefix
+      module: buf.build/grpc-ecosystem/grpc-gateway
+  override:
+    - file_option: go_package_prefix
+      value: github.com/chill-institute/contracts/gen/go
+plugins:
+  - remote: buf.build/protocolbuffers/go:v1.36.10
+    out: gen/go
+    opt:
+      - paths=source_relative
+  - remote: buf.build/connectrpc/go:v1.19.1
+    out: gen/go
+    opt:
+      - paths=source_relative
+  - remote: buf.build/grpc-ecosystem/openapiv2:v2.27.3
+    out: gen/openapi
+    opt:
+      - output_format=yaml
+      - generate_unbound_methods=true
+      - omit_enum_default_value=true
+  - remote: buf.build/bufbuild/es:v2.11.0
+    out: gen/ts
+    include_imports: true
+    opt:
+      - target=js+dts
+      - import_extension=js

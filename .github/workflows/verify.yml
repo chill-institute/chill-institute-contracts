@@ -1,0 +1,31 @@
+name: Verify
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: jdx/mise-action@v3
+        with:
+          install: true
+
+      - name: Verify contracts
+        run: mise run verify
+
+      - name: Check generated artifacts are committed
+        run: git diff --exit-code
+
+      - name: Check breaking changes against main
+        if: github.event_name == 'pull_request'
+        run: buf breaking --against '.git#branch=main'

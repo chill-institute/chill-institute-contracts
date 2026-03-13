@@ -1,0 +1,707 @@
+swagger: "2.0"
+info:
+  title: Chill API v4 RPC
+  version: "4"
+tags:
+  - name: CoreService
+  - name: UserService
+basePath: /v4
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /chill.v4.CoreService/GetIndexers:
+    post:
+      operationId: CoreService_GetIndexers
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v4CoreGetIndexersResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/v4CoreGetIndexersRequest'
+        - name: X-API-Key
+          description: Core API key
+          in: header
+          required: true
+          type: string
+      tags:
+        - CoreService
+      security:
+        - ApiKeyAuth: []
+  /chill.v4.CoreService/GetTopMoviesBySource:
+    post:
+      operationId: CoreService_GetTopMoviesBySource
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v4GetTopMoviesBySourceResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/v4GetTopMoviesBySourceRequest'
+        - name: X-API-Key
+          description: Core API key
+          in: header
+          required: true
+          type: string
+      tags:
+        - CoreService
+      security:
+        - ApiKeyAuth: []
+  /chill.v4.CoreService/HealthCheck:
+    post:
+      operationId: CoreService_HealthCheck
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v4HealthResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/v4HealthCheckRequest'
+        - name: X-API-Key
+          description: Core API key
+          in: header
+          required: true
+          type: string
+      tags:
+        - CoreService
+      security:
+        - ApiKeyAuth: []
+  /chill.v4.CoreService/Search:
+    post:
+      operationId: CoreService_Search
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v4SearchResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/v4CoreSearchRequest'
+        - name: X-API-Key
+          description: Core API key
+          in: header
+          required: true
+          type: string
+      tags:
+        - CoreService
+      security:
+        - ApiKeyAuth: []
+  /chill.v4.UserService/AddTransfer:
+    post:
+      operationId: UserService_AddTransfer
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v4AddTransferResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/v4AddTransferRequest'
+        - name: Authorization
+          description: 'Bearer auth token. Format: Bearer <token>'
+          in: header
+          required: true
+          type: string
+      tags:
+        - UserService
+      security:
+        - BearerAuth: []
+  /chill.v4.UserService/GetDownloadFolder:
+    post:
+      operationId: UserService_GetDownloadFolder
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v4GetDownloadFolderResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/v4GetDownloadFolderRequest'
+        - name: Authorization
+          description: 'Bearer auth token. Format: Bearer <token>'
+          in: header
+          required: true
+          type: string
+      tags:
+        - UserService
+      security:
+        - BearerAuth: []
+  /chill.v4.UserService/GetFolder:
+    post:
+      operationId: UserService_GetFolder
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v4GetFolderResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/v4GetFolderRequest'
+        - name: Authorization
+          description: 'Bearer auth token. Format: Bearer <token>'
+          in: header
+          required: true
+          type: string
+      tags:
+        - UserService
+      security:
+        - BearerAuth: []
+  /chill.v4.UserService/GetIndexers:
+    post:
+      operationId: UserService_GetIndexers
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v4UserGetIndexersResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/v4UserGetIndexersRequest'
+        - name: Authorization
+          description: 'Bearer auth token. Format: Bearer <token>'
+          in: header
+          required: true
+          type: string
+      tags:
+        - UserService
+      security:
+        - BearerAuth: []
+  /chill.v4.UserService/GetTopMovies:
+    post:
+      operationId: UserService_GetTopMovies
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v4UserGetTopMoviesResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/v4UserGetTopMoviesRequest'
+        - name: Authorization
+          description: 'Bearer auth token. Format: Bearer <token>'
+          in: header
+          required: true
+          type: string
+      tags:
+        - UserService
+      security:
+        - BearerAuth: []
+  /chill.v4.UserService/GetUserProfile:
+    post:
+      operationId: UserService_GetUserProfile
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v4UserProfile'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/v4GetUserProfileRequest'
+        - name: Authorization
+          description: 'Bearer auth token. Format: Bearer <token>'
+          in: header
+          required: true
+          type: string
+      tags:
+        - UserService
+      security:
+        - BearerAuth: []
+  /chill.v4.UserService/GetUserSettings:
+    post:
+      operationId: UserService_GetUserSettings
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v4UserSettings'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/v4GetUserSettingsRequest'
+        - name: Authorization
+          description: 'Bearer auth token. Format: Bearer <token>'
+          in: header
+          required: true
+          type: string
+      tags:
+        - UserService
+      security:
+        - BearerAuth: []
+  /chill.v4.UserService/SaveUserSettings:
+    post:
+      operationId: UserService_SaveUserSettings
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v4UserSettings'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/v4SaveUserSettingsRequest'
+        - name: Authorization
+          description: 'Bearer auth token. Format: Bearer <token>'
+          in: header
+          required: true
+          type: string
+      tags:
+        - UserService
+      security:
+        - BearerAuth: []
+  /chill.v4.UserService/Search:
+    post:
+      operationId: UserService_Search
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v4SearchResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/v4UserSearchRequest'
+        - name: Authorization
+          description: 'Bearer auth token. Format: Bearer <token>'
+          in: header
+          required: true
+          type: string
+      tags:
+        - UserService
+      security:
+        - BearerAuth: []
+definitions:
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+    additionalProperties: {}
+  rpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/protobufAny'
+  v4AddTransferRequest:
+    type: object
+    properties:
+      url:
+        type: string
+  v4AddTransferResponse:
+    type: object
+    properties:
+      status:
+        type: string
+  v4CodecFilter:
+    type: string
+    enum:
+      - CODEC_FILTER_X264
+      - CODEC_FILTER_X265
+  v4CoreGetIndexersRequest:
+    type: object
+  v4CoreGetIndexersResponse:
+    type: object
+    properties:
+      indexers:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v4Indexer'
+  v4CoreSearchRequest:
+    type: object
+    properties:
+      query:
+        type: string
+  v4GetDownloadFolderRequest:
+    type: object
+  v4GetDownloadFolderResponse:
+    type: object
+    properties:
+      folder:
+        $ref: '#/definitions/v4UserFile'
+  v4GetFolderRequest:
+    type: object
+    properties:
+      id:
+        type: string
+        format: int64
+  v4GetFolderResponse:
+    type: object
+    properties:
+      parent:
+        $ref: '#/definitions/v4UserFile'
+      files:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v4UserFile'
+  v4GetTopMoviesBySourceRequest:
+    type: object
+    properties:
+      source:
+        $ref: '#/definitions/v4TopMoviesSource'
+  v4GetTopMoviesBySourceResponse:
+    type: object
+    properties:
+      source:
+        $ref: '#/definitions/v4TopMoviesSource'
+      movies:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v4TopMovie'
+  v4GetUserProfileRequest:
+    type: object
+  v4GetUserSettingsRequest:
+    type: object
+  v4HealthCheckRequest:
+    type: object
+  v4HealthResponse:
+    type: object
+    properties:
+      status:
+        type: string
+  v4Indexer:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+  v4OtherFilter:
+    type: string
+    enum:
+      - OTHER_FILTER_HDR
+  v4ResolutionFilter:
+    type: string
+    enum:
+      - RESOLUTION_FILTER_720P
+      - RESOLUTION_FILTER_1080P
+      - RESOLUTION_FILTER_2160P
+  v4SaveUserSettingsRequest:
+    type: object
+    properties:
+      settings:
+        $ref: '#/definitions/v4UserSettings'
+  v4SearchResponse:
+    type: object
+    properties:
+      query:
+        type: string
+      results:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v4SearchResult'
+  v4SearchResult:
+    type: object
+    properties:
+      id:
+        type: string
+      title:
+        type: string
+      indexer:
+        type: string
+      link:
+        type: string
+      imdbId:
+        type: string
+      peers:
+        type: string
+        format: int64
+      seeders:
+        type: string
+        format: int64
+      size:
+        type: string
+        format: int64
+      source:
+        type: string
+      uploadedAt:
+        type: string
+  v4SearchResultDisplayBehavior:
+    type: string
+    enum:
+      - SEARCH_RESULT_DISPLAY_BEHAVIOR_ALL
+      - SEARCH_RESULT_DISPLAY_BEHAVIOR_FASTEST
+  v4SearchResultTitleBehavior:
+    type: string
+    enum:
+      - SEARCH_RESULT_TITLE_BEHAVIOR_LINK
+      - SEARCH_RESULT_TITLE_BEHAVIOR_TEXT
+  v4SortBy:
+    type: string
+    enum:
+      - SORT_BY_TITLE
+      - SORT_BY_SEEDERS
+      - SORT_BY_SIZE
+      - SORT_BY_UPLOADED_AT
+      - SORT_BY_SOURCE
+  v4SortDirection:
+    type: string
+    enum:
+      - SORT_DIRECTION_ASC
+      - SORT_DIRECTION_DESC
+  v4TopMovie:
+    type: object
+    properties:
+      id:
+        type: string
+      title:
+        type: string
+      year:
+        type: integer
+        format: int32
+      source:
+        $ref: '#/definitions/v4TopMoviesSource'
+      titlePretty:
+        type: string
+      link:
+        type: string
+      peers:
+        type: string
+        format: int64
+      seeders:
+        type: string
+        format: int64
+      size:
+        type: string
+        format: int64
+      uploadedAt:
+        type: string
+      posterUrl:
+        type: string
+      rating:
+        type: number
+        format: double
+      externalUrl:
+        type: string
+  v4TopMoviesDisplayType:
+    type: string
+    enum:
+      - TOP_MOVIES_DISPLAY_TYPE_COMPACT
+      - TOP_MOVIES_DISPLAY_TYPE_EXPANDED
+  v4TopMoviesSource:
+    type: string
+    enum:
+      - TOP_MOVIES_SOURCE_IMDB_MOVIEMETER
+      - TOP_MOVIES_SOURCE_IMDB_TOP_250
+      - TOP_MOVIES_SOURCE_YTS
+      - TOP_MOVIES_SOURCE_ROTTEN_TOMATOES
+      - TOP_MOVIES_SOURCE_TRAKT
+  v4UserFile:
+    type: object
+    properties:
+      id:
+        type: string
+        format: int64
+      name:
+        type: string
+      fileType:
+        type: string
+      isShared:
+        type: boolean
+      createdAt:
+        type: string
+  v4UserGetIndexersRequest:
+    type: object
+  v4UserGetIndexersResponse:
+    type: object
+    properties:
+      indexers:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v4UserIndexer'
+  v4UserGetTopMoviesRequest:
+    type: object
+  v4UserGetTopMoviesResponse:
+    type: object
+    properties:
+      source:
+        $ref: '#/definitions/v4TopMoviesSource'
+      movies:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/v4TopMovie'
+  v4UserIndexer:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      enabled:
+        type: boolean
+  v4UserProfile:
+    type: object
+    properties:
+      userId:
+        type: string
+      username:
+        type: string
+      avatarUrl:
+        type: string
+      email:
+        type: string
+  v4UserSearchRequest:
+    type: object
+    properties:
+      query:
+        type: string
+      indexerId:
+        type: string
+  v4UserSettings:
+    type: object
+    properties:
+      codecFilters:
+        type: array
+        items:
+          $ref: '#/definitions/v4CodecFilter'
+      disabledIndexerIds:
+        type: array
+        items:
+          type: string
+      downloadFolderId:
+        type: string
+        format: int64
+      filterNastyResults:
+        type: boolean
+      filterResultsWithNoSeeders:
+        type: boolean
+      otherFilters:
+        type: array
+        items:
+          $ref: '#/definitions/v4OtherFilter'
+      rememberQuickFilters:
+        type: boolean
+      resolutionFilters:
+        type: array
+        items:
+          $ref: '#/definitions/v4ResolutionFilter'
+      searchResultDisplayBehavior:
+        $ref: '#/definitions/v4SearchResultDisplayBehavior'
+      searchResultTitleBehavior:
+        $ref: '#/definitions/v4SearchResultTitleBehavior'
+      showPrettyNamesForTopMovies:
+        type: boolean
+      showTopMovies:
+        type: boolean
+      sortBy:
+        $ref: '#/definitions/v4SortBy'
+      sortDirection:
+        $ref: '#/definitions/v4SortDirection'
+      topMoviesDisplayType:
+        $ref: '#/definitions/v4TopMoviesDisplayType'
+      topMoviesSource:
+        $ref: '#/definitions/v4TopMoviesSource'
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    name: X-API-Key
+    in: header
+  BearerAuth:
+    type: apiKey
+    name: Authorization
+    in: header

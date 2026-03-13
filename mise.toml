@@ -1,0 +1,20 @@
+[tools]
+buf = "1.66.1"
+go = "1.25.7"
+node = "24.14.0"
+
+[tasks.generate]
+description = "Generate Go, TypeScript, and OpenAPI artifacts from protobuf sources"
+run = [
+  "rm -rf gen",
+  "buf generate",
+  "go mod tidy"
+]
+
+[tasks.verify]
+description = "Verify protobuf contracts and generated artifacts"
+run = [
+  "buf lint",
+  "mise run generate",
+  "go test ./..."
+]
