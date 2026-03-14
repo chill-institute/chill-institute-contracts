@@ -31,4 +31,4 @@ Consumers should depend on tagged releases, not `main`.
 
 ## License
 
-Apache-2.0. See [LICENSE](./LICENSE).
+MIT. See [LICENSE](./LICENSE).
