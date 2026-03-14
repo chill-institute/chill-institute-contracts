@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Canonical protobuf API contracts and generated client artifacts for Chill",
   "license": "MIT",
+  "packageManager": "pnpm@10.15.1",
   "type": "module",
   "sideEffects": false,
   "files": [
