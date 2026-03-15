@@ -398,6 +398,11 @@ export declare type UserGetTopMoviesResponse = Message<"chill.v4.UserGetTopMovie
    * @generated from field: repeated chill.v4.TopMovie movies = 2;
    */
   movies: TopMovie[];
+
+  /**
+   * @generated from field: string rss_feed_url = 3;
+   */
+  rssFeedUrl: string;
 };
 
 /**

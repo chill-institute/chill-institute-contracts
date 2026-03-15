@@ -389,6 +389,7 @@ message UserGetTopMoviesRequest {}
 message UserGetTopMoviesResponse {
   TopMoviesSource source = 1;
   repeated TopMovie movies = 2;
+  string rss_feed_url = 3;
 }
 
 message GetUserSettingsRequest {}

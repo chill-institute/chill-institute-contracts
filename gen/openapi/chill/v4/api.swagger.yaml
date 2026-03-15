@@ -727,6 +727,8 @@ definitions:
         items:
           type: object
           $ref: '#/definitions/v4TopMovie'
+      rssFeedUrl:
+        type: string
   v4UserIndexer:
     type: object
     properties:

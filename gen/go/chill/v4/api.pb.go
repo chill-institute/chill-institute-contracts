@@ -1373,6 +1373,7 @@ type UserGetTopMoviesResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Source        TopMoviesSource        `protobuf:"varint,1,opt,name=source,proto3,enum=chill.v4.TopMoviesSource" json:"source,omitempty"`
 	Movies        []*TopMovie            `protobuf:"bytes,2,rep,name=movies,proto3" json:"movies,omitempty"`
+	RssFeedUrl    string                 `protobuf:"bytes,3,opt,name=rss_feed_url,json=rssFeedUrl,proto3" json:"rss_feed_url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1419,6 +1420,13 @@ func (x *UserGetTopMoviesResponse) GetMovies() []*TopMovie {
 		return x.Movies
 	}
 	return nil
+}
+
+func (x *UserGetTopMoviesResponse) GetRssFeedUrl() string {
+	if x != nil {
+		return x.RssFeedUrl
+	}
+	return ""
 }
 
 type GetUserSettingsRequest struct {
@@ -2487,10 +2495,12 @@ const file_chill_v4_api_proto_rawDesc = "" +
 	"\x1cGetTopMoviesBySourceResponse\x121\n" +
 	"\x06source\x18\x01 \x01(\x0e2\x19.chill.v4.TopMoviesSourceR\x06source\x12*\n" +
 	"\x06movies\x18\x02 \x03(\v2\x12.chill.v4.TopMovieR\x06movies\"\x19\n" +
-	"\x17UserGetTopMoviesRequest\"y\n" +
+	"\x17UserGetTopMoviesRequest\"\x9b\x01\n" +
 	"\x18UserGetTopMoviesResponse\x121\n" +
 	"\x06source\x18\x01 \x01(\x0e2\x19.chill.v4.TopMoviesSourceR\x06source\x12*\n" +
-	"\x06movies\x18\x02 \x03(\v2\x12.chill.v4.TopMovieR\x06movies\"\x18\n" +
+	"\x06movies\x18\x02 \x03(\v2\x12.chill.v4.TopMovieR\x06movies\x12 \n" +
+	"\frss_feed_url\x18\x03 \x01(\tR\n" +
+	"rssFeedUrl\"\x18\n" +
 	"\x16GetUserSettingsRequest\"\xc3\b\n" +
 	"\fUserSettings\x12:\n" +
 	"\rcodec_filters\x18\x01 \x03(\x0e2\x15.chill.v4.CodecFilterR\fcodecFilters\x120\n" +
