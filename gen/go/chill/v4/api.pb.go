@@ -2464,7 +2464,7 @@ const file_chill_v4_api_proto_rawDesc = "" +
 	"indexer_id\x18\x02 \x01(\tH\x00R\tindexerId\x88\x01\x01B\r\n" +
 	"\v_indexer_id\"P\n" +
 	"\x1bGetTopMoviesBySourceRequest\x121\n" +
-	"\x06source\x18\x01 \x01(\x0e2\x19.chill.v4.TopMoviesSourceR\x06source\"\xed\x02\n" +
+	"\x06source\x18\x01 \x01(\x0e2\x19.chill.v4.TopMoviesSourceR\x06source\"\x81\x03\n" +
 	"\bTopMovie\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12\x12\n" +
@@ -2481,7 +2481,9 @@ const file_chill_v4_api_proto_rawDesc = "" +
 	"\n" +
 	"poster_url\x18\v \x01(\tR\tposterUrl\x12\x16\n" +
 	"\x06rating\x18\f \x01(\x01R\x06rating\x12!\n" +
-	"\fexternal_url\x18\r \x01(\tR\vexternalUrl\"}\n" +
+	"\fexternal_url\x18\r \x01(\tR\vexternalUrl:\x12\x92A\x0f\n" +
+	"\r\xd2\x01\n" +
+	"poster_url\"}\n" +
 	"\x1cGetTopMoviesBySourceResponse\x121\n" +
 	"\x06source\x18\x01 \x01(\x0e2\x19.chill.v4.TopMoviesSourceR\x06source\x12*\n" +
 	"\x06movies\x18\x02 \x03(\v2\x12.chill.v4.TopMovieR\x06movies\"\x19\n" +

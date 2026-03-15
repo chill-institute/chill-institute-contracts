@@ -616,6 +616,8 @@ definitions:
         format: double
       externalUrl:
         type: string
+    required:
+      - posterUrl
   v4TopMoviesDisplayType:
     type: string
     enum:

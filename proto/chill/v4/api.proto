@@ -358,6 +358,12 @@ message GetTopMoviesBySourceRequest {
 }
 
 message TopMovie {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      required: ["poster_url"]
+    }
+  };
+
   string id = 1;
   string title = 2;
   int32 year = 3;
