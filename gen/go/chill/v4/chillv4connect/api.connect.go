@@ -59,6 +59,8 @@ const (
 	UserServiceSaveUserSettingsProcedure = "/chill.v4.UserService/SaveUserSettings"
 	// UserServiceAddTransferProcedure is the fully-qualified name of the UserService's AddTransfer RPC.
 	UserServiceAddTransferProcedure = "/chill.v4.UserService/AddTransfer"
+	// UserServiceGetTransferProcedure is the fully-qualified name of the UserService's GetTransfer RPC.
+	UserServiceGetTransferProcedure = "/chill.v4.UserService/GetTransfer"
 	// UserServiceGetDownloadFolderProcedure is the fully-qualified name of the UserService's
 	// GetDownloadFolder RPC.
 	UserServiceGetDownloadFolderProcedure = "/chill.v4.UserService/GetDownloadFolder"
@@ -225,6 +227,7 @@ type UserServiceClient interface {
 	GetUserSettings(context.Context, *connect.Request[v4.GetUserSettingsRequest]) (*connect.Response[v4.UserSettings], error)
 	SaveUserSettings(context.Context, *connect.Request[v4.SaveUserSettingsRequest]) (*connect.Response[v4.UserSettings], error)
 	AddTransfer(context.Context, *connect.Request[v4.AddTransferRequest]) (*connect.Response[v4.AddTransferResponse], error)
+	GetTransfer(context.Context, *connect.Request[v4.GetTransferRequest]) (*connect.Response[v4.GetTransferResponse], error)
 	GetDownloadFolder(context.Context, *connect.Request[v4.GetDownloadFolderRequest]) (*connect.Response[v4.GetDownloadFolderResponse], error)
 	GetFolder(context.Context, *connect.Request[v4.GetFolderRequest]) (*connect.Response[v4.GetFolderResponse], error)
 	GetUserProfile(context.Context, *connect.Request[v4.GetUserProfileRequest]) (*connect.Response[v4.UserProfile], error)
@@ -277,6 +280,12 @@ func NewUserServiceClient(httpClient connect.HTTPClient, baseURL string, opts ..
 			connect.WithSchema(userServiceMethods.ByName("AddTransfer")),
 			connect.WithClientOptions(opts...),
 		),
+		getTransfer: connect.NewClient[v4.GetTransferRequest, v4.GetTransferResponse](
+			httpClient,
+			baseURL+UserServiceGetTransferProcedure,
+			connect.WithSchema(userServiceMethods.ByName("GetTransfer")),
+			connect.WithClientOptions(opts...),
+		),
 		getDownloadFolder: connect.NewClient[v4.GetDownloadFolderRequest, v4.GetDownloadFolderResponse](
 			httpClient,
 			baseURL+UserServiceGetDownloadFolderProcedure,
@@ -306,6 +315,7 @@ type userServiceClient struct {
 	getUserSettings   *connect.Client[v4.GetUserSettingsRequest, v4.UserSettings]
 	saveUserSettings  *connect.Client[v4.SaveUserSettingsRequest, v4.UserSettings]
 	addTransfer       *connect.Client[v4.AddTransferRequest, v4.AddTransferResponse]
+	getTransfer       *connect.Client[v4.GetTransferRequest, v4.GetTransferResponse]
 	getDownloadFolder *connect.Client[v4.GetDownloadFolderRequest, v4.GetDownloadFolderResponse]
 	getFolder         *connect.Client[v4.GetFolderRequest, v4.GetFolderResponse]
 	getUserProfile    *connect.Client[v4.GetUserProfileRequest, v4.UserProfile]
@@ -341,6 +351,11 @@ func (c *userServiceClient) AddTransfer(ctx context.Context, req *connect.Reques
 	return c.addTransfer.CallUnary(ctx, req)
 }
 
+// GetTransfer calls chill.v4.UserService.GetTransfer.
+func (c *userServiceClient) GetTransfer(ctx context.Context, req *connect.Request[v4.GetTransferRequest]) (*connect.Response[v4.GetTransferResponse], error) {
+	return c.getTransfer.CallUnary(ctx, req)
+}
+
 // GetDownloadFolder calls chill.v4.UserService.GetDownloadFolder.
 func (c *userServiceClient) GetDownloadFolder(ctx context.Context, req *connect.Request[v4.GetDownloadFolderRequest]) (*connect.Response[v4.GetDownloadFolderResponse], error) {
 	return c.getDownloadFolder.CallUnary(ctx, req)
@@ -364,6 +379,7 @@ type UserServiceHandler interface {
 	GetUserSettings(context.Context, *connect.Request[v4.GetUserSettingsRequest]) (*connect.Response[v4.UserSettings], error)
 	SaveUserSettings(context.Context, *connect.Request[v4.SaveUserSettingsRequest]) (*connect.Response[v4.UserSettings], error)
 	AddTransfer(context.Context, *connect.Request[v4.AddTransferRequest]) (*connect.Response[v4.AddTransferResponse], error)
+	GetTransfer(context.Context, *connect.Request[v4.GetTransferRequest]) (*connect.Response[v4.GetTransferResponse], error)
 	GetDownloadFolder(context.Context, *connect.Request[v4.GetDownloadFolderRequest]) (*connect.Response[v4.GetDownloadFolderResponse], error)
 	GetFolder(context.Context, *connect.Request[v4.GetFolderRequest]) (*connect.Response[v4.GetFolderResponse], error)
 	GetUserProfile(context.Context, *connect.Request[v4.GetUserProfileRequest]) (*connect.Response[v4.UserProfile], error)
@@ -412,6 +428,12 @@ func NewUserServiceHandler(svc UserServiceHandler, opts ...connect.HandlerOption
 		connect.WithSchema(userServiceMethods.ByName("AddTransfer")),
 		connect.WithHandlerOptions(opts...),
 	)
+	userServiceGetTransferHandler := connect.NewUnaryHandler(
+		UserServiceGetTransferProcedure,
+		svc.GetTransfer,
+		connect.WithSchema(userServiceMethods.ByName("GetTransfer")),
+		connect.WithHandlerOptions(opts...),
+	)
 	userServiceGetDownloadFolderHandler := connect.NewUnaryHandler(
 		UserServiceGetDownloadFolderProcedure,
 		svc.GetDownloadFolder,
@@ -444,6 +466,8 @@ func NewUserServiceHandler(svc UserServiceHandler, opts ...connect.HandlerOption
 			userServiceSaveUserSettingsHandler.ServeHTTP(w, r)
 		case UserServiceAddTransferProcedure:
 			userServiceAddTransferHandler.ServeHTTP(w, r)
+		case UserServiceGetTransferProcedure:
+			userServiceGetTransferHandler.ServeHTTP(w, r)
 		case UserServiceGetDownloadFolderProcedure:
 			userServiceGetDownloadFolderHandler.ServeHTTP(w, r)
 		case UserServiceGetFolderProcedure:
@@ -481,6 +505,10 @@ func (UnimplementedUserServiceHandler) SaveUserSettings(context.Context, *connec
 
 func (UnimplementedUserServiceHandler) AddTransfer(context.Context, *connect.Request[v4.AddTransferRequest]) (*connect.Response[v4.AddTransferResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("chill.v4.UserService.AddTransfer is not implemented"))
+}
+
+func (UnimplementedUserServiceHandler) GetTransfer(context.Context, *connect.Request[v4.GetTransferRequest]) (*connect.Response[v4.GetTransferResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("chill.v4.UserService.GetTransfer is not implemented"))
 }
 
 func (UnimplementedUserServiceHandler) GetDownloadFolder(context.Context, *connect.Request[v4.GetDownloadFolderRequest]) (*connect.Response[v4.GetDownloadFolderResponse], error) {

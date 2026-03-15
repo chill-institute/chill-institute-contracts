@@ -1712,6 +1712,7 @@ func (x *AddTransferRequest) GetUrl() string {
 type AddTransferResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Status        string                 `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	Transfer      *Transfer              `protobuf:"bytes,2,opt,name=transfer,proto3" json:"transfer,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1753,6 +1754,313 @@ func (x *AddTransferResponse) GetStatus() string {
 	return ""
 }
 
+func (x *AddTransferResponse) GetTransfer() *Transfer {
+	if x != nil {
+		return x.Transfer
+	}
+	return nil
+}
+
+type GetTransferRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTransferRequest) Reset() {
+	*x = GetTransferRequest{}
+	mi := &file_chill_v4_api_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTransferRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTransferRequest) ProtoMessage() {}
+
+func (x *GetTransferRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_chill_v4_api_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTransferRequest.ProtoReflect.Descriptor instead.
+func (*GetTransferRequest) Descriptor() ([]byte, []int) {
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *GetTransferRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type GetTransferResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Transfer      *Transfer              `protobuf:"bytes,1,opt,name=transfer,proto3" json:"transfer,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTransferResponse) Reset() {
+	*x = GetTransferResponse{}
+	mi := &file_chill_v4_api_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTransferResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTransferResponse) ProtoMessage() {}
+
+func (x *GetTransferResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_chill_v4_api_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTransferResponse.ProtoReflect.Descriptor instead.
+func (*GetTransferResponse) Descriptor() ([]byte, []int) {
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetTransferResponse) GetTransfer() *Transfer {
+	if x != nil {
+		return x.Transfer
+	}
+	return nil
+}
+
+type Transfer struct {
+	state                protoimpl.MessageState `protogen:"open.v1"`
+	Id                   int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name                 string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Status               string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
+	PercentDone          int32                  `protobuf:"varint,4,opt,name=percent_done,json=percentDone,proto3" json:"percent_done,omitempty"`
+	StatusMessage        string                 `protobuf:"bytes,5,opt,name=status_message,json=statusMessage,proto3" json:"status_message,omitempty"`
+	ErrorMessage         string                 `protobuf:"bytes,6,opt,name=error_message,json=errorMessage,proto3" json:"error_message,omitempty"`
+	Size                 int64                  `protobuf:"varint,7,opt,name=size,proto3" json:"size,omitempty"`
+	Downloaded           int64                  `protobuf:"varint,8,opt,name=downloaded,proto3" json:"downloaded,omitempty"`
+	Uploaded             int64                  `protobuf:"varint,9,opt,name=uploaded,proto3" json:"uploaded,omitempty"`
+	DownloadSpeed        int32                  `protobuf:"varint,10,opt,name=download_speed,json=downloadSpeed,proto3" json:"download_speed,omitempty"`
+	UploadSpeed          int32                  `protobuf:"varint,11,opt,name=upload_speed,json=uploadSpeed,proto3" json:"upload_speed,omitempty"`
+	PeersConnected       int32                  `protobuf:"varint,12,opt,name=peers_connected,json=peersConnected,proto3" json:"peers_connected,omitempty"`
+	PeersSendingToUs     int32                  `protobuf:"varint,13,opt,name=peers_sending_to_us,json=peersSendingToUs,proto3" json:"peers_sending_to_us,omitempty"`
+	PeersGettingFromUs   int32                  `protobuf:"varint,14,opt,name=peers_getting_from_us,json=peersGettingFromUs,proto3" json:"peers_getting_from_us,omitempty"`
+	EstimatedTimeSeconds int64                  `protobuf:"varint,15,opt,name=estimated_time_seconds,json=estimatedTimeSeconds,proto3" json:"estimated_time_seconds,omitempty"`
+	FileId               *int64                 `protobuf:"varint,16,opt,name=file_id,json=fileId,proto3,oneof" json:"file_id,omitempty"`
+	FileUrl              *string                `protobuf:"bytes,17,opt,name=file_url,json=fileUrl,proto3,oneof" json:"file_url,omitempty"`
+	SaveParentId         *int64                 `protobuf:"varint,18,opt,name=save_parent_id,json=saveParentId,proto3,oneof" json:"save_parent_id,omitempty"`
+	Source               string                 `protobuf:"bytes,19,opt,name=source,proto3" json:"source,omitempty"`
+	CreatedAt            *string                `protobuf:"bytes,20,opt,name=created_at,json=createdAt,proto3,oneof" json:"created_at,omitempty"`
+	FinishedAt           *string                `protobuf:"bytes,21,opt,name=finished_at,json=finishedAt,proto3,oneof" json:"finished_at,omitempty"`
+	IsFinished           bool                   `protobuf:"varint,22,opt,name=is_finished,json=isFinished,proto3" json:"is_finished,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
+
+func (x *Transfer) Reset() {
+	*x = Transfer{}
+	mi := &file_chill_v4_api_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Transfer) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Transfer) ProtoMessage() {}
+
+func (x *Transfer) ProtoReflect() protoreflect.Message {
+	mi := &file_chill_v4_api_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Transfer.ProtoReflect.Descriptor instead.
+func (*Transfer) Descriptor() ([]byte, []int) {
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *Transfer) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Transfer) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Transfer) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
+func (x *Transfer) GetPercentDone() int32 {
+	if x != nil {
+		return x.PercentDone
+	}
+	return 0
+}
+
+func (x *Transfer) GetStatusMessage() string {
+	if x != nil {
+		return x.StatusMessage
+	}
+	return ""
+}
+
+func (x *Transfer) GetErrorMessage() string {
+	if x != nil {
+		return x.ErrorMessage
+	}
+	return ""
+}
+
+func (x *Transfer) GetSize() int64 {
+	if x != nil {
+		return x.Size
+	}
+	return 0
+}
+
+func (x *Transfer) GetDownloaded() int64 {
+	if x != nil {
+		return x.Downloaded
+	}
+	return 0
+}
+
+func (x *Transfer) GetUploaded() int64 {
+	if x != nil {
+		return x.Uploaded
+	}
+	return 0
+}
+
+func (x *Transfer) GetDownloadSpeed() int32 {
+	if x != nil {
+		return x.DownloadSpeed
+	}
+	return 0
+}
+
+func (x *Transfer) GetUploadSpeed() int32 {
+	if x != nil {
+		return x.UploadSpeed
+	}
+	return 0
+}
+
+func (x *Transfer) GetPeersConnected() int32 {
+	if x != nil {
+		return x.PeersConnected
+	}
+	return 0
+}
+
+func (x *Transfer) GetPeersSendingToUs() int32 {
+	if x != nil {
+		return x.PeersSendingToUs
+	}
+	return 0
+}
+
+func (x *Transfer) GetPeersGettingFromUs() int32 {
+	if x != nil {
+		return x.PeersGettingFromUs
+	}
+	return 0
+}
+
+func (x *Transfer) GetEstimatedTimeSeconds() int64 {
+	if x != nil {
+		return x.EstimatedTimeSeconds
+	}
+	return 0
+}
+
+func (x *Transfer) GetFileId() int64 {
+	if x != nil && x.FileId != nil {
+		return *x.FileId
+	}
+	return 0
+}
+
+func (x *Transfer) GetFileUrl() string {
+	if x != nil && x.FileUrl != nil {
+		return *x.FileUrl
+	}
+	return ""
+}
+
+func (x *Transfer) GetSaveParentId() int64 {
+	if x != nil && x.SaveParentId != nil {
+		return *x.SaveParentId
+	}
+	return 0
+}
+
+func (x *Transfer) GetSource() string {
+	if x != nil {
+		return x.Source
+	}
+	return ""
+}
+
+func (x *Transfer) GetCreatedAt() string {
+	if x != nil && x.CreatedAt != nil {
+		return *x.CreatedAt
+	}
+	return ""
+}
+
+func (x *Transfer) GetFinishedAt() string {
+	if x != nil && x.FinishedAt != nil {
+		return *x.FinishedAt
+	}
+	return ""
+}
+
+func (x *Transfer) GetIsFinished() bool {
+	if x != nil {
+		return x.IsFinished
+	}
+	return false
+}
+
 type GetDownloadFolderRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -1761,7 +2069,7 @@ type GetDownloadFolderRequest struct {
 
 func (x *GetDownloadFolderRequest) Reset() {
 	*x = GetDownloadFolderRequest{}
-	mi := &file_chill_v4_api_proto_msgTypes[22]
+	mi := &file_chill_v4_api_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1773,7 +2081,7 @@ func (x *GetDownloadFolderRequest) String() string {
 func (*GetDownloadFolderRequest) ProtoMessage() {}
 
 func (x *GetDownloadFolderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_chill_v4_api_proto_msgTypes[22]
+	mi := &file_chill_v4_api_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1786,7 +2094,7 @@ func (x *GetDownloadFolderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDownloadFolderRequest.ProtoReflect.Descriptor instead.
 func (*GetDownloadFolderRequest) Descriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{22}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{25}
 }
 
 type GetDownloadFolderResponse struct {
@@ -1798,7 +2106,7 @@ type GetDownloadFolderResponse struct {
 
 func (x *GetDownloadFolderResponse) Reset() {
 	*x = GetDownloadFolderResponse{}
-	mi := &file_chill_v4_api_proto_msgTypes[23]
+	mi := &file_chill_v4_api_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1810,7 +2118,7 @@ func (x *GetDownloadFolderResponse) String() string {
 func (*GetDownloadFolderResponse) ProtoMessage() {}
 
 func (x *GetDownloadFolderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_chill_v4_api_proto_msgTypes[23]
+	mi := &file_chill_v4_api_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1823,7 +2131,7 @@ func (x *GetDownloadFolderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDownloadFolderResponse.ProtoReflect.Descriptor instead.
 func (*GetDownloadFolderResponse) Descriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{23}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *GetDownloadFolderResponse) GetFolder() *UserFile {
@@ -1842,7 +2150,7 @@ type GetFolderRequest struct {
 
 func (x *GetFolderRequest) Reset() {
 	*x = GetFolderRequest{}
-	mi := &file_chill_v4_api_proto_msgTypes[24]
+	mi := &file_chill_v4_api_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1854,7 +2162,7 @@ func (x *GetFolderRequest) String() string {
 func (*GetFolderRequest) ProtoMessage() {}
 
 func (x *GetFolderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_chill_v4_api_proto_msgTypes[24]
+	mi := &file_chill_v4_api_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1867,7 +2175,7 @@ func (x *GetFolderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFolderRequest.ProtoReflect.Descriptor instead.
 func (*GetFolderRequest) Descriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{24}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *GetFolderRequest) GetId() int64 {
@@ -1890,7 +2198,7 @@ type UserFile struct {
 
 func (x *UserFile) Reset() {
 	*x = UserFile{}
-	mi := &file_chill_v4_api_proto_msgTypes[25]
+	mi := &file_chill_v4_api_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1902,7 +2210,7 @@ func (x *UserFile) String() string {
 func (*UserFile) ProtoMessage() {}
 
 func (x *UserFile) ProtoReflect() protoreflect.Message {
-	mi := &file_chill_v4_api_proto_msgTypes[25]
+	mi := &file_chill_v4_api_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1915,7 +2223,7 @@ func (x *UserFile) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserFile.ProtoReflect.Descriptor instead.
 func (*UserFile) Descriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{25}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *UserFile) GetId() int64 {
@@ -1963,7 +2271,7 @@ type GetFolderResponse struct {
 
 func (x *GetFolderResponse) Reset() {
 	*x = GetFolderResponse{}
-	mi := &file_chill_v4_api_proto_msgTypes[26]
+	mi := &file_chill_v4_api_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1975,7 +2283,7 @@ func (x *GetFolderResponse) String() string {
 func (*GetFolderResponse) ProtoMessage() {}
 
 func (x *GetFolderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_chill_v4_api_proto_msgTypes[26]
+	mi := &file_chill_v4_api_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1988,7 +2296,7 @@ func (x *GetFolderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFolderResponse.ProtoReflect.Descriptor instead.
 func (*GetFolderResponse) Descriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{26}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *GetFolderResponse) GetParent() *UserFile {
@@ -2013,7 +2321,7 @@ type GetUserProfileRequest struct {
 
 func (x *GetUserProfileRequest) Reset() {
 	*x = GetUserProfileRequest{}
-	mi := &file_chill_v4_api_proto_msgTypes[27]
+	mi := &file_chill_v4_api_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2025,7 +2333,7 @@ func (x *GetUserProfileRequest) String() string {
 func (*GetUserProfileRequest) ProtoMessage() {}
 
 func (x *GetUserProfileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_chill_v4_api_proto_msgTypes[27]
+	mi := &file_chill_v4_api_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2038,7 +2346,7 @@ func (x *GetUserProfileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserProfileRequest.ProtoReflect.Descriptor instead.
 func (*GetUserProfileRequest) Descriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{27}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{30}
 }
 
 type UserProfile struct {
@@ -2053,7 +2361,7 @@ type UserProfile struct {
 
 func (x *UserProfile) Reset() {
 	*x = UserProfile{}
-	mi := &file_chill_v4_api_proto_msgTypes[28]
+	mi := &file_chill_v4_api_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2065,7 +2373,7 @@ func (x *UserProfile) String() string {
 func (*UserProfile) ProtoMessage() {}
 
 func (x *UserProfile) ProtoReflect() protoreflect.Message {
-	mi := &file_chill_v4_api_proto_msgTypes[28]
+	mi := &file_chill_v4_api_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2078,7 +2386,7 @@ func (x *UserProfile) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserProfile.ProtoReflect.Descriptor instead.
 func (*UserProfile) Descriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{28}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *UserProfile) GetUserId() string {
@@ -2204,9 +2512,49 @@ const file_chill_v4_api_proto_rawDesc = "" +
 	"\x17SaveUserSettingsRequest\x122\n" +
 	"\bsettings\x18\x01 \x01(\v2\x16.chill.v4.UserSettingsR\bsettings\"&\n" +
 	"\x12AddTransferRequest\x12\x10\n" +
-	"\x03url\x18\x01 \x01(\tR\x03url\"-\n" +
+	"\x03url\x18\x01 \x01(\tR\x03url\"]\n" +
 	"\x13AddTransferResponse\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\tR\x06status\"\x1a\n" +
+	"\x06status\x18\x01 \x01(\tR\x06status\x12.\n" +
+	"\btransfer\x18\x02 \x01(\v2\x12.chill.v4.TransferR\btransfer\"$\n" +
+	"\x12GetTransferRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"E\n" +
+	"\x13GetTransferResponse\x12.\n" +
+	"\btransfer\x18\x01 \x01(\v2\x12.chill.v4.TransferR\btransfer\"\xc7\x06\n" +
+	"\bTransfer\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x16\n" +
+	"\x06status\x18\x03 \x01(\tR\x06status\x12!\n" +
+	"\fpercent_done\x18\x04 \x01(\x05R\vpercentDone\x12%\n" +
+	"\x0estatus_message\x18\x05 \x01(\tR\rstatusMessage\x12#\n" +
+	"\rerror_message\x18\x06 \x01(\tR\ferrorMessage\x12\x12\n" +
+	"\x04size\x18\a \x01(\x03R\x04size\x12\x1e\n" +
+	"\n" +
+	"downloaded\x18\b \x01(\x03R\n" +
+	"downloaded\x12\x1a\n" +
+	"\buploaded\x18\t \x01(\x03R\buploaded\x12%\n" +
+	"\x0edownload_speed\x18\n" +
+	" \x01(\x05R\rdownloadSpeed\x12!\n" +
+	"\fupload_speed\x18\v \x01(\x05R\vuploadSpeed\x12'\n" +
+	"\x0fpeers_connected\x18\f \x01(\x05R\x0epeersConnected\x12-\n" +
+	"\x13peers_sending_to_us\x18\r \x01(\x05R\x10peersSendingToUs\x121\n" +
+	"\x15peers_getting_from_us\x18\x0e \x01(\x05R\x12peersGettingFromUs\x124\n" +
+	"\x16estimated_time_seconds\x18\x0f \x01(\x03R\x14estimatedTimeSeconds\x12\x1c\n" +
+	"\afile_id\x18\x10 \x01(\x03H\x00R\x06fileId\x88\x01\x01\x12\x1e\n" +
+	"\bfile_url\x18\x11 \x01(\tH\x01R\afileUrl\x88\x01\x01\x12)\n" +
+	"\x0esave_parent_id\x18\x12 \x01(\x03H\x02R\fsaveParentId\x88\x01\x01\x12\x16\n" +
+	"\x06source\x18\x13 \x01(\tR\x06source\x12\"\n" +
+	"\n" +
+	"created_at\x18\x14 \x01(\tH\x03R\tcreatedAt\x88\x01\x01\x12$\n" +
+	"\vfinished_at\x18\x15 \x01(\tH\x04R\n" +
+	"finishedAt\x88\x01\x01\x12\x1f\n" +
+	"\vis_finished\x18\x16 \x01(\bR\n" +
+	"isFinishedB\n" +
+	"\n" +
+	"\b_file_idB\v\n" +
+	"\t_file_urlB\x11\n" +
+	"\x0f_save_parent_idB\r\n" +
+	"\v_created_atB\x0e\n" +
+	"\f_finished_at\"\x1a\n" +
 	"\x18GetDownloadFolderRequest\"G\n" +
 	"\x19GetDownloadFolderResponse\x12*\n" +
 	"\x06folder\x18\x01 \x01(\v2\x12.chill.v4.UserFileR\x06folder\"\"\n" +
@@ -2295,7 +2643,7 @@ const file_chill_v4_api_proto_rawDesc = "" +
 	"\n" +
 	"ApiKeyAuth\x12\x00r\x1f\n" +
 	"\x1d\n" +
-	"\tX-API-Key\x12\fCore API key\x18\x01(\x012\xf9\v\n" +
+	"\tX-API-Key\x12\fCore API key\x18\x01(\x012\x9f\r\n" +
 	"\vUserService\x12\xab\x01\n" +
 	"\vGetIndexers\x12 .chill.v4.UserGetIndexersRequest\x1a!.chill.v4.UserGetIndexersResponse\"W\x92ATb\x10\n" +
 	"\x0e\n" +
@@ -2328,6 +2676,12 @@ const file_chill_v4_api_proto_rawDesc = "" +
 	">\n" +
 	"\rAuthorization\x12)Bearer auth token. Format: Bearer <token>\x18\x01(\x01\x12\xa3\x01\n" +
 	"\vAddTransfer\x12\x1c.chill.v4.AddTransferRequest\x1a\x1d.chill.v4.AddTransferResponse\"W\x92ATb\x10\n" +
+	"\x0e\n" +
+	"\n" +
+	"BearerAuth\x12\x00r@\n" +
+	">\n" +
+	"\rAuthorization\x12)Bearer auth token. Format: Bearer <token>\x18\x01(\x01\x12\xa3\x01\n" +
+	"\vGetTransfer\x12\x1c.chill.v4.GetTransferRequest\x1a\x1d.chill.v4.GetTransferResponse\"W\x92ATb\x10\n" +
 	"\x0e\n" +
 	"\n" +
 	"BearerAuth\x12\x00r@\n" +
@@ -2373,7 +2727,7 @@ func file_chill_v4_api_proto_rawDescGZIP() []byte {
 }
 
 var file_chill_v4_api_proto_enumTypes = make([]protoimpl.EnumInfo, 9)
-var file_chill_v4_api_proto_msgTypes = make([]protoimpl.MessageInfo, 29)
+var file_chill_v4_api_proto_msgTypes = make([]protoimpl.MessageInfo, 32)
 var file_chill_v4_api_proto_goTypes = []any{
 	(TopMoviesSource)(0),                 // 0: chill.v4.TopMoviesSource
 	(ResolutionFilter)(0),                // 1: chill.v4.ResolutionFilter
@@ -2406,13 +2760,16 @@ var file_chill_v4_api_proto_goTypes = []any{
 	(*SaveUserSettingsRequest)(nil),      // 28: chill.v4.SaveUserSettingsRequest
 	(*AddTransferRequest)(nil),           // 29: chill.v4.AddTransferRequest
 	(*AddTransferResponse)(nil),          // 30: chill.v4.AddTransferResponse
-	(*GetDownloadFolderRequest)(nil),     // 31: chill.v4.GetDownloadFolderRequest
-	(*GetDownloadFolderResponse)(nil),    // 32: chill.v4.GetDownloadFolderResponse
-	(*GetFolderRequest)(nil),             // 33: chill.v4.GetFolderRequest
-	(*UserFile)(nil),                     // 34: chill.v4.UserFile
-	(*GetFolderResponse)(nil),            // 35: chill.v4.GetFolderResponse
-	(*GetUserProfileRequest)(nil),        // 36: chill.v4.GetUserProfileRequest
-	(*UserProfile)(nil),                  // 37: chill.v4.UserProfile
+	(*GetTransferRequest)(nil),           // 31: chill.v4.GetTransferRequest
+	(*GetTransferResponse)(nil),          // 32: chill.v4.GetTransferResponse
+	(*Transfer)(nil),                     // 33: chill.v4.Transfer
+	(*GetDownloadFolderRequest)(nil),     // 34: chill.v4.GetDownloadFolderRequest
+	(*GetDownloadFolderResponse)(nil),    // 35: chill.v4.GetDownloadFolderResponse
+	(*GetFolderRequest)(nil),             // 36: chill.v4.GetFolderRequest
+	(*UserFile)(nil),                     // 37: chill.v4.UserFile
+	(*GetFolderResponse)(nil),            // 38: chill.v4.GetFolderResponse
+	(*GetUserProfileRequest)(nil),        // 39: chill.v4.GetUserProfileRequest
+	(*UserProfile)(nil),                  // 40: chill.v4.UserProfile
 }
 var file_chill_v4_api_proto_depIdxs = []int32{
 	12, // 0: chill.v4.CoreGetIndexersResponse.indexers:type_name -> chill.v4.Indexer
@@ -2434,40 +2791,44 @@ var file_chill_v4_api_proto_depIdxs = []int32{
 	8,  // 16: chill.v4.UserSettings.top_movies_display_type:type_name -> chill.v4.TopMoviesDisplayType
 	0,  // 17: chill.v4.UserSettings.top_movies_source:type_name -> chill.v4.TopMoviesSource
 	27, // 18: chill.v4.SaveUserSettingsRequest.settings:type_name -> chill.v4.UserSettings
-	34, // 19: chill.v4.GetDownloadFolderResponse.folder:type_name -> chill.v4.UserFile
-	34, // 20: chill.v4.GetFolderResponse.parent:type_name -> chill.v4.UserFile
-	34, // 21: chill.v4.GetFolderResponse.files:type_name -> chill.v4.UserFile
-	9,  // 22: chill.v4.CoreService.HealthCheck:input_type -> chill.v4.HealthCheckRequest
-	11, // 23: chill.v4.CoreService.GetIndexers:input_type -> chill.v4.CoreGetIndexersRequest
-	17, // 24: chill.v4.CoreService.Search:input_type -> chill.v4.CoreSearchRequest
-	21, // 25: chill.v4.CoreService.GetTopMoviesBySource:input_type -> chill.v4.GetTopMoviesBySourceRequest
-	14, // 26: chill.v4.UserService.GetIndexers:input_type -> chill.v4.UserGetIndexersRequest
-	20, // 27: chill.v4.UserService.Search:input_type -> chill.v4.UserSearchRequest
-	24, // 28: chill.v4.UserService.GetTopMovies:input_type -> chill.v4.UserGetTopMoviesRequest
-	26, // 29: chill.v4.UserService.GetUserSettings:input_type -> chill.v4.GetUserSettingsRequest
-	28, // 30: chill.v4.UserService.SaveUserSettings:input_type -> chill.v4.SaveUserSettingsRequest
-	29, // 31: chill.v4.UserService.AddTransfer:input_type -> chill.v4.AddTransferRequest
-	31, // 32: chill.v4.UserService.GetDownloadFolder:input_type -> chill.v4.GetDownloadFolderRequest
-	33, // 33: chill.v4.UserService.GetFolder:input_type -> chill.v4.GetFolderRequest
-	36, // 34: chill.v4.UserService.GetUserProfile:input_type -> chill.v4.GetUserProfileRequest
-	10, // 35: chill.v4.CoreService.HealthCheck:output_type -> chill.v4.HealthResponse
-	13, // 36: chill.v4.CoreService.GetIndexers:output_type -> chill.v4.CoreGetIndexersResponse
-	19, // 37: chill.v4.CoreService.Search:output_type -> chill.v4.SearchResponse
-	23, // 38: chill.v4.CoreService.GetTopMoviesBySource:output_type -> chill.v4.GetTopMoviesBySourceResponse
-	15, // 39: chill.v4.UserService.GetIndexers:output_type -> chill.v4.UserGetIndexersResponse
-	19, // 40: chill.v4.UserService.Search:output_type -> chill.v4.SearchResponse
-	25, // 41: chill.v4.UserService.GetTopMovies:output_type -> chill.v4.UserGetTopMoviesResponse
-	27, // 42: chill.v4.UserService.GetUserSettings:output_type -> chill.v4.UserSettings
-	27, // 43: chill.v4.UserService.SaveUserSettings:output_type -> chill.v4.UserSettings
-	30, // 44: chill.v4.UserService.AddTransfer:output_type -> chill.v4.AddTransferResponse
-	32, // 45: chill.v4.UserService.GetDownloadFolder:output_type -> chill.v4.GetDownloadFolderResponse
-	35, // 46: chill.v4.UserService.GetFolder:output_type -> chill.v4.GetFolderResponse
-	37, // 47: chill.v4.UserService.GetUserProfile:output_type -> chill.v4.UserProfile
-	35, // [35:48] is the sub-list for method output_type
-	22, // [22:35] is the sub-list for method input_type
-	22, // [22:22] is the sub-list for extension type_name
-	22, // [22:22] is the sub-list for extension extendee
-	0,  // [0:22] is the sub-list for field type_name
+	33, // 19: chill.v4.AddTransferResponse.transfer:type_name -> chill.v4.Transfer
+	33, // 20: chill.v4.GetTransferResponse.transfer:type_name -> chill.v4.Transfer
+	37, // 21: chill.v4.GetDownloadFolderResponse.folder:type_name -> chill.v4.UserFile
+	37, // 22: chill.v4.GetFolderResponse.parent:type_name -> chill.v4.UserFile
+	37, // 23: chill.v4.GetFolderResponse.files:type_name -> chill.v4.UserFile
+	9,  // 24: chill.v4.CoreService.HealthCheck:input_type -> chill.v4.HealthCheckRequest
+	11, // 25: chill.v4.CoreService.GetIndexers:input_type -> chill.v4.CoreGetIndexersRequest
+	17, // 26: chill.v4.CoreService.Search:input_type -> chill.v4.CoreSearchRequest
+	21, // 27: chill.v4.CoreService.GetTopMoviesBySource:input_type -> chill.v4.GetTopMoviesBySourceRequest
+	14, // 28: chill.v4.UserService.GetIndexers:input_type -> chill.v4.UserGetIndexersRequest
+	20, // 29: chill.v4.UserService.Search:input_type -> chill.v4.UserSearchRequest
+	24, // 30: chill.v4.UserService.GetTopMovies:input_type -> chill.v4.UserGetTopMoviesRequest
+	26, // 31: chill.v4.UserService.GetUserSettings:input_type -> chill.v4.GetUserSettingsRequest
+	28, // 32: chill.v4.UserService.SaveUserSettings:input_type -> chill.v4.SaveUserSettingsRequest
+	29, // 33: chill.v4.UserService.AddTransfer:input_type -> chill.v4.AddTransferRequest
+	31, // 34: chill.v4.UserService.GetTransfer:input_type -> chill.v4.GetTransferRequest
+	34, // 35: chill.v4.UserService.GetDownloadFolder:input_type -> chill.v4.GetDownloadFolderRequest
+	36, // 36: chill.v4.UserService.GetFolder:input_type -> chill.v4.GetFolderRequest
+	39, // 37: chill.v4.UserService.GetUserProfile:input_type -> chill.v4.GetUserProfileRequest
+	10, // 38: chill.v4.CoreService.HealthCheck:output_type -> chill.v4.HealthResponse
+	13, // 39: chill.v4.CoreService.GetIndexers:output_type -> chill.v4.CoreGetIndexersResponse
+	19, // 40: chill.v4.CoreService.Search:output_type -> chill.v4.SearchResponse
+	23, // 41: chill.v4.CoreService.GetTopMoviesBySource:output_type -> chill.v4.GetTopMoviesBySourceResponse
+	15, // 42: chill.v4.UserService.GetIndexers:output_type -> chill.v4.UserGetIndexersResponse
+	19, // 43: chill.v4.UserService.Search:output_type -> chill.v4.SearchResponse
+	25, // 44: chill.v4.UserService.GetTopMovies:output_type -> chill.v4.UserGetTopMoviesResponse
+	27, // 45: chill.v4.UserService.GetUserSettings:output_type -> chill.v4.UserSettings
+	27, // 46: chill.v4.UserService.SaveUserSettings:output_type -> chill.v4.UserSettings
+	30, // 47: chill.v4.UserService.AddTransfer:output_type -> chill.v4.AddTransferResponse
+	32, // 48: chill.v4.UserService.GetTransfer:output_type -> chill.v4.GetTransferResponse
+	35, // 49: chill.v4.UserService.GetDownloadFolder:output_type -> chill.v4.GetDownloadFolderResponse
+	38, // 50: chill.v4.UserService.GetFolder:output_type -> chill.v4.GetFolderResponse
+	40, // 51: chill.v4.UserService.GetUserProfile:output_type -> chill.v4.UserProfile
+	38, // [38:52] is the sub-list for method output_type
+	24, // [24:38] is the sub-list for method input_type
+	24, // [24:24] is the sub-list for extension type_name
+	24, // [24:24] is the sub-list for extension extendee
+	0,  // [0:24] is the sub-list for field type_name
 }
 
 func init() { file_chill_v4_api_proto_init() }
@@ -2478,13 +2839,14 @@ func file_chill_v4_api_proto_init() {
 	file_chill_v4_api_proto_msgTypes[9].OneofWrappers = []any{}
 	file_chill_v4_api_proto_msgTypes[11].OneofWrappers = []any{}
 	file_chill_v4_api_proto_msgTypes[18].OneofWrappers = []any{}
+	file_chill_v4_api_proto_msgTypes[24].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_chill_v4_api_proto_rawDesc), len(file_chill_v4_api_proto_rawDesc)),
 			NumEnums:      9,
-			NumMessages:   29,
+			NumMessages:   32,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

@@ -254,6 +254,33 @@ paths:
         - UserService
       security:
         - BearerAuth: []
+  /chill.v4.UserService/GetTransfer:
+    post:
+      operationId: UserService_GetTransfer
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v4GetTransferResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/v4GetTransferRequest'
+        - name: Authorization
+          description: 'Bearer auth token. Format: Bearer <token>'
+          in: header
+          required: true
+          type: string
+      tags:
+        - UserService
+      security:
+        - BearerAuth: []
   /chill.v4.UserService/GetUserProfile:
     post:
       operationId: UserService_GetUserProfile
@@ -392,6 +419,8 @@ definitions:
     properties:
       status:
         type: string
+      transfer:
+        $ref: '#/definitions/v4Transfer'
   v4CodecFilter:
     type: string
     enum:
@@ -450,6 +479,17 @@ definitions:
         items:
           type: object
           $ref: '#/definitions/v4TopMovie'
+  v4GetTransferRequest:
+    type: object
+    properties:
+      id:
+        type: string
+        format: int64
+  v4GetTransferResponse:
+    type: object
+    properties:
+      transfer:
+        $ref: '#/definitions/v4Transfer'
   v4GetUserProfileRequest:
     type: object
   v4GetUserSettingsRequest:
@@ -589,6 +629,66 @@ definitions:
       - TOP_MOVIES_SOURCE_YTS
       - TOP_MOVIES_SOURCE_ROTTEN_TOMATOES
       - TOP_MOVIES_SOURCE_TRAKT
+  v4Transfer:
+    type: object
+    properties:
+      id:
+        type: string
+        format: int64
+      name:
+        type: string
+      status:
+        type: string
+      percentDone:
+        type: integer
+        format: int32
+      statusMessage:
+        type: string
+      errorMessage:
+        type: string
+      size:
+        type: string
+        format: int64
+      downloaded:
+        type: string
+        format: int64
+      uploaded:
+        type: string
+        format: int64
+      downloadSpeed:
+        type: integer
+        format: int32
+      uploadSpeed:
+        type: integer
+        format: int32
+      peersConnected:
+        type: integer
+        format: int32
+      peersSendingToUs:
+        type: integer
+        format: int32
+      peersGettingFromUs:
+        type: integer
+        format: int32
+      estimatedTimeSeconds:
+        type: string
+        format: int64
+      fileId:
+        type: string
+        format: int64
+      fileUrl:
+        type: string
+      saveParentId:
+        type: string
+        format: int64
+      source:
+        type: string
+      createdAt:
+        type: string
+      finishedAt:
+        type: string
+      isFinished:
+        type: boolean
   v4UserFile:
     type: object
     properties:

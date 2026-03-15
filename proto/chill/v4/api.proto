@@ -214,6 +214,24 @@ service UserService {
       };
     };
   }
+  rpc GetTransfer(GetTransferRequest) returns (GetTransferResponse) {
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      security: {
+        security_requirement: {
+          key: "BearerAuth";
+          value: {};
+        };
+      };
+      parameters: {
+        headers: {
+          name: "Authorization";
+          description: "Bearer auth token. Format: Bearer <token>";
+          type: STRING;
+          required: true;
+        };
+      };
+    };
+  }
   rpc GetDownloadFolder(GetDownloadFolderRequest) returns (GetDownloadFolderResponse) {
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
       security: {
@@ -449,6 +467,40 @@ message AddTransferRequest {
 
 message AddTransferResponse {
   string status = 1;
+  Transfer transfer = 2;
+}
+
+message GetTransferRequest {
+  int64 id = 1;
+}
+
+message GetTransferResponse {
+  Transfer transfer = 1;
+}
+
+message Transfer {
+  int64 id = 1;
+  string name = 2;
+  string status = 3;
+  int32 percent_done = 4;
+  string status_message = 5;
+  string error_message = 6;
+  int64 size = 7;
+  int64 downloaded = 8;
+  int64 uploaded = 9;
+  int32 download_speed = 10;
+  int32 upload_speed = 11;
+  int32 peers_connected = 12;
+  int32 peers_sending_to_us = 13;
+  int32 peers_getting_from_us = 14;
+  int64 estimated_time_seconds = 15;
+  optional int64 file_id = 16;
+  optional string file_url = 17;
+  optional int64 save_parent_id = 18;
+  string source = 19;
+  optional string created_at = 20;
+  optional string finished_at = 21;
+  bool is_finished = 22;
 }
 
 message GetDownloadFolderRequest {}

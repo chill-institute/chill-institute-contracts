@@ -549,6 +549,11 @@ export declare type AddTransferResponse = Message<"chill.v4.AddTransferResponse"
    * @generated from field: string status = 1;
    */
   status: string;
+
+  /**
+   * @generated from field: chill.v4.Transfer transfer = 2;
+   */
+  transfer?: Transfer;
 };
 
 /**
@@ -556,6 +561,159 @@ export declare type AddTransferResponse = Message<"chill.v4.AddTransferResponse"
  * Use `create(AddTransferResponseSchema)` to create a new message.
  */
 export declare const AddTransferResponseSchema: GenMessage<AddTransferResponse>;
+
+/**
+ * @generated from message chill.v4.GetTransferRequest
+ */
+export declare type GetTransferRequest = Message<"chill.v4.GetTransferRequest"> & {
+  /**
+   * @generated from field: int64 id = 1;
+   */
+  id: bigint;
+};
+
+/**
+ * Describes the message chill.v4.GetTransferRequest.
+ * Use `create(GetTransferRequestSchema)` to create a new message.
+ */
+export declare const GetTransferRequestSchema: GenMessage<GetTransferRequest>;
+
+/**
+ * @generated from message chill.v4.GetTransferResponse
+ */
+export declare type GetTransferResponse = Message<"chill.v4.GetTransferResponse"> & {
+  /**
+   * @generated from field: chill.v4.Transfer transfer = 1;
+   */
+  transfer?: Transfer;
+};
+
+/**
+ * Describes the message chill.v4.GetTransferResponse.
+ * Use `create(GetTransferResponseSchema)` to create a new message.
+ */
+export declare const GetTransferResponseSchema: GenMessage<GetTransferResponse>;
+
+/**
+ * @generated from message chill.v4.Transfer
+ */
+export declare type Transfer = Message<"chill.v4.Transfer"> & {
+  /**
+   * @generated from field: int64 id = 1;
+   */
+  id: bigint;
+
+  /**
+   * @generated from field: string name = 2;
+   */
+  name: string;
+
+  /**
+   * @generated from field: string status = 3;
+   */
+  status: string;
+
+  /**
+   * @generated from field: int32 percent_done = 4;
+   */
+  percentDone: number;
+
+  /**
+   * @generated from field: string status_message = 5;
+   */
+  statusMessage: string;
+
+  /**
+   * @generated from field: string error_message = 6;
+   */
+  errorMessage: string;
+
+  /**
+   * @generated from field: int64 size = 7;
+   */
+  size: bigint;
+
+  /**
+   * @generated from field: int64 downloaded = 8;
+   */
+  downloaded: bigint;
+
+  /**
+   * @generated from field: int64 uploaded = 9;
+   */
+  uploaded: bigint;
+
+  /**
+   * @generated from field: int32 download_speed = 10;
+   */
+  downloadSpeed: number;
+
+  /**
+   * @generated from field: int32 upload_speed = 11;
+   */
+  uploadSpeed: number;
+
+  /**
+   * @generated from field: int32 peers_connected = 12;
+   */
+  peersConnected: number;
+
+  /**
+   * @generated from field: int32 peers_sending_to_us = 13;
+   */
+  peersSendingToUs: number;
+
+  /**
+   * @generated from field: int32 peers_getting_from_us = 14;
+   */
+  peersGettingFromUs: number;
+
+  /**
+   * @generated from field: int64 estimated_time_seconds = 15;
+   */
+  estimatedTimeSeconds: bigint;
+
+  /**
+   * @generated from field: optional int64 file_id = 16;
+   */
+  fileId?: bigint;
+
+  /**
+   * @generated from field: optional string file_url = 17;
+   */
+  fileUrl?: string;
+
+  /**
+   * @generated from field: optional int64 save_parent_id = 18;
+   */
+  saveParentId?: bigint;
+
+  /**
+   * @generated from field: string source = 19;
+   */
+  source: string;
+
+  /**
+   * @generated from field: optional string created_at = 20;
+   */
+  createdAt?: string;
+
+  /**
+   * @generated from field: optional string finished_at = 21;
+   */
+  finishedAt?: string;
+
+  /**
+   * @generated from field: bool is_finished = 22;
+   */
+  isFinished: boolean;
+};
+
+/**
+ * Describes the message chill.v4.Transfer.
+ * Use `create(TransferSchema)` to create a new message.
+ */
+export declare const TransferSchema: GenMessage<Transfer>;
 
 /**
  * @generated from message chill.v4.GetDownloadFolderRequest
@@ -1045,6 +1203,14 @@ export declare const UserService: GenService<{
     methodKind: "unary";
     input: typeof AddTransferRequestSchema;
     output: typeof AddTransferResponseSchema;
+  },
+  /**
+   * @generated from rpc chill.v4.UserService.GetTransfer
+   */
+  getTransfer: {
+    methodKind: "unary";
+    input: typeof GetTransferRequestSchema;
+    output: typeof GetTransferResponseSchema;
   },
   /**
    * @generated from rpc chill.v4.UserService.GetDownloadFolder
