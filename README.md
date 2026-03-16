@@ -1,6 +1,6 @@
 # chill-institute-contracts
 
-![chill.institute contracts](https://binge.institute/banner.png)
+![chill.institute contracts](https://chill.institute/banner.png)
 
 Public API contracts for [chill.institute](https://chill.institute), your favorite [put.io](https://put.io) extension since 2018.
 
