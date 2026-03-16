@@ -3,6 +3,9 @@ buf = "1.66.1"
 go = "1.25.7"
 node = "24.14.0"
 
+[env]
+GOWORK = "off"
+
 [tasks.generate]
 description = "Generate Go, TypeScript, and OpenAPI artifacts from protobuf sources"
 run = [
