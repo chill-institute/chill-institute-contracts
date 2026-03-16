@@ -602,7 +602,7 @@ type Indexer struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Tags          []string               `protobuf:"bytes,3,rep,name=tags,proto3" json:"tags,omitempty"`
-	AvgResponseMs uint64                 `protobuf:"varint,4,opt,name=avg_response_ms,json=avgResponseMs,proto3" json:"avg_response_ms,omitempty"`
+	Healthy       bool                   `protobuf:"varint,5,opt,name=healthy,proto3" json:"healthy,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -658,11 +658,11 @@ func (x *Indexer) GetTags() []string {
 	return nil
 }
 
-func (x *Indexer) GetAvgResponseMs() uint64 {
+func (x *Indexer) GetHealthy() bool {
 	if x != nil {
-		return x.AvgResponseMs
+		return x.Healthy
 	}
-	return 0
+	return false
 }
 
 type CoreGetIndexersResponse struct {
@@ -795,7 +795,7 @@ type UserIndexer struct {
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Enabled       bool                   `protobuf:"varint,3,opt,name=enabled,proto3" json:"enabled,omitempty"`
 	Tags          []string               `protobuf:"bytes,4,rep,name=tags,proto3" json:"tags,omitempty"`
-	AvgResponseMs uint64                 `protobuf:"varint,5,opt,name=avg_response_ms,json=avgResponseMs,proto3" json:"avg_response_ms,omitempty"`
+	Healthy       bool                   `protobuf:"varint,6,opt,name=healthy,proto3" json:"healthy,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -858,11 +858,11 @@ func (x *UserIndexer) GetTags() []string {
 	return nil
 }
 
-func (x *UserIndexer) GetAvgResponseMs() uint64 {
+func (x *UserIndexer) GetHealthy() bool {
 	if x != nil {
-		return x.AvgResponseMs
+		return x.Healthy
 	}
-	return 0
+	return false
 }
 
 type CoreSearchRequest struct {
@@ -2465,23 +2465,23 @@ const file_chill_v4_api_proto_rawDesc = "" +
 	"\x12HealthCheckRequest\"(\n" +
 	"\x0eHealthResponse\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\tR\x06status\"\x18\n" +
-	"\x16CoreGetIndexersRequest\"i\n" +
+	"\x16CoreGetIndexersRequest\"a\n" +
 	"\aIndexer\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x12\n" +
-	"\x04tags\x18\x03 \x03(\tR\x04tags\x12&\n" +
-	"\x0favg_response_ms\x18\x04 \x01(\x04R\ravgResponseMs\"H\n" +
+	"\x04tags\x18\x03 \x03(\tR\x04tags\x12\x18\n" +
+	"\ahealthy\x18\x05 \x01(\bR\ahealthyJ\x04\b\x04\x10\x05\"H\n" +
 	"\x17CoreGetIndexersResponse\x12-\n" +
 	"\bindexers\x18\x01 \x03(\v2\x11.chill.v4.IndexerR\bindexers\"\x18\n" +
 	"\x16UserGetIndexersRequest\"L\n" +
 	"\x17UserGetIndexersResponse\x121\n" +
-	"\bindexers\x18\x01 \x03(\v2\x15.chill.v4.UserIndexerR\bindexers\"\x87\x01\n" +
+	"\bindexers\x18\x01 \x03(\v2\x15.chill.v4.UserIndexerR\bindexers\"\x7f\n" +
 	"\vUserIndexer\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
 	"\aenabled\x18\x03 \x01(\bR\aenabled\x12\x12\n" +
-	"\x04tags\x18\x04 \x03(\tR\x04tags\x12&\n" +
-	"\x0favg_response_ms\x18\x05 \x01(\x04R\ravgResponseMs\")\n" +
+	"\x04tags\x18\x04 \x03(\tR\x04tags\x12\x18\n" +
+	"\ahealthy\x18\x06 \x01(\bR\ahealthyJ\x04\b\x05\x10\x06\")\n" +
 	"\x11CoreSearchRequest\x12\x14\n" +
 	"\x05query\x18\x01 \x01(\tR\x05query\"\x89\x02\n" +
 	"\fSearchResult\x12\x0e\n" +

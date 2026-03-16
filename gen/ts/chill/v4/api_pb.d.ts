@@ -70,9 +70,9 @@ export declare type Indexer = Message<"chill.v4.Indexer"> & {
   tags: string[];
 
   /**
-   * @generated from field: uint64 avg_response_ms = 4;
+   * @generated from field: bool healthy = 5;
    */
-  avgResponseMs: bigint;
+  healthy: boolean;
 };
 
 /**
@@ -150,9 +150,9 @@ export declare type UserIndexer = Message<"chill.v4.UserIndexer"> & {
   tags: string[];
 
   /**
-   * @generated from field: uint64 avg_response_ms = 5;
+   * @generated from field: bool healthy = 6;
    */
-  avgResponseMs: bigint;
+  healthy: boolean;
 };
 
 /**

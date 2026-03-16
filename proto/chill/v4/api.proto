@@ -300,7 +300,8 @@ message Indexer {
   string id = 1;
   string name = 2;
   repeated string tags = 3;
-  uint64 avg_response_ms = 4;
+  reserved 4;
+  bool healthy = 5;
 }
 
 message CoreGetIndexersResponse {
@@ -318,7 +319,8 @@ message UserIndexer {
   string name = 2;
   bool enabled = 3;
   repeated string tags = 4;
-  uint64 avg_response_ms = 5;
+  reserved 5;
+  bool healthy = 6;
 }
 
 message CoreSearchRequest {

@@ -512,9 +512,8 @@ definitions:
         type: array
         items:
           type: string
-      avgResponseMs:
-        type: string
-        format: uint64
+      healthy:
+        type: boolean
   v4OtherFilter:
     type: string
     enum:
@@ -749,9 +748,8 @@ definitions:
         type: array
         items:
           type: string
-      avgResponseMs:
-        type: string
-        format: uint64
+      healthy:
+        type: boolean
   v4UserProfile:
     type: object
     properties:
