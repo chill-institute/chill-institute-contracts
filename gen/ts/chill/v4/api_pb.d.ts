@@ -63,6 +63,16 @@ export declare type Indexer = Message<"chill.v4.Indexer"> & {
    * @generated from field: string name = 2;
    */
   name: string;
+
+  /**
+   * @generated from field: repeated string tags = 3;
+   */
+  tags: string[];
+
+  /**
+   * @generated from field: uint64 avg_response_ms = 4;
+   */
+  avgResponseMs: bigint;
 };
 
 /**
@@ -133,6 +143,16 @@ export declare type UserIndexer = Message<"chill.v4.UserIndexer"> & {
    * @generated from field: bool enabled = 3;
    */
   enabled: boolean;
+
+  /**
+   * @generated from field: repeated string tags = 4;
+   */
+  tags: string[];
+
+  /**
+   * @generated from field: uint64 avg_response_ms = 5;
+   */
+  avgResponseMs: bigint;
 };
 
 /**

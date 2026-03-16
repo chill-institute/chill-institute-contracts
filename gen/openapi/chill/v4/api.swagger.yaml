@@ -508,6 +508,13 @@ definitions:
         type: string
       name:
         type: string
+      tags:
+        type: array
+        items:
+          type: string
+      avgResponseMs:
+        type: string
+        format: uint64
   v4OtherFilter:
     type: string
     enum:
@@ -738,6 +745,13 @@ definitions:
         type: string
       enabled:
         type: boolean
+      tags:
+        type: array
+        items:
+          type: string
+      avgResponseMs:
+        type: string
+        format: uint64
   v4UserProfile:
     type: object
     properties:
