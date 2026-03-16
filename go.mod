@@ -1,4 +1,4 @@
-module github.com/chill-institute/contracts
+module github.com/chill-institute/chill-institute-contracts
 
 go 1.25.0
 
