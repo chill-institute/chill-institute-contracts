@@ -7,6 +7,7 @@ Public API contracts for [chill.institute](https://chill.institute), your favori
 ## Docs
 
 - [Architecture](./docs/ARCHITECTURE.md)
+- [Security](./SECURITY.md)
 
 ## Contributing
 
