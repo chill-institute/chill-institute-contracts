@@ -2746,75 +2746,75 @@ const file_chill_v4_api_proto_rawDesc = "" +
 	"\n" +
 	"ApiKeyAuth\x12\x00r\x1f\n" +
 	"\x1d\n" +
-	"\tX-API-Key\x12\fCore API key\x18\x01(\x012\x9f\r\n" +
-	"\vUserService\x12\xab\x01\n" +
-	"\vGetIndexers\x12 .chill.v4.UserGetIndexersRequest\x1a!.chill.v4.UserGetIndexersResponse\"W\x92ATb\x10\n" +
+	"\tX-API-Key\x12\fCore API key\x18\x01(\x012\x95\r\n" +
+	"\vUserService\x12\xaa\x01\n" +
+	"\vGetIndexers\x12 .chill.v4.UserGetIndexersRequest\x1a!.chill.v4.UserGetIndexersResponse\"V\x92ASb\x10\n" +
 	"\x0e\n" +
 	"\n" +
-	"BearerAuth\x12\x00r@\n" +
-	">\n" +
-	"\rAuthorization\x12)Bearer auth token. Format: Bearer <token>\x18\x01(\x01\x12\x98\x01\n" +
-	"\x06Search\x12\x1b.chill.v4.UserSearchRequest\x1a\x18.chill.v4.SearchResponse\"W\x92ATb\x10\n" +
+	"BearerAuth\x12\x00r?\n" +
+	"=\n" +
+	"\rAuthorization\x12(User auth token. Format: Bearer <token>.\x18\x01(\x01\x12\x97\x01\n" +
+	"\x06Search\x12\x1b.chill.v4.UserSearchRequest\x1a\x18.chill.v4.SearchResponse\"V\x92ASb\x10\n" +
 	"\x0e\n" +
 	"\n" +
-	"BearerAuth\x12\x00r@\n" +
-	">\n" +
-	"\rAuthorization\x12)Bearer auth token. Format: Bearer <token>\x18\x01(\x01\x12\xae\x01\n" +
-	"\fGetTopMovies\x12!.chill.v4.UserGetTopMoviesRequest\x1a\".chill.v4.UserGetTopMoviesResponse\"W\x92ATb\x10\n" +
+	"BearerAuth\x12\x00r?\n" +
+	"=\n" +
+	"\rAuthorization\x12(User auth token. Format: Bearer <token>.\x18\x01(\x01\x12\xad\x01\n" +
+	"\fGetTopMovies\x12!.chill.v4.UserGetTopMoviesRequest\x1a\".chill.v4.UserGetTopMoviesResponse\"V\x92ASb\x10\n" +
 	"\x0e\n" +
 	"\n" +
-	"BearerAuth\x12\x00r@\n" +
-	">\n" +
-	"\rAuthorization\x12)Bearer auth token. Format: Bearer <token>\x18\x01(\x01\x12\xa4\x01\n" +
-	"\x0fGetUserSettings\x12 .chill.v4.GetUserSettingsRequest\x1a\x16.chill.v4.UserSettings\"W\x92ATb\x10\n" +
+	"BearerAuth\x12\x00r?\n" +
+	"=\n" +
+	"\rAuthorization\x12(User auth token. Format: Bearer <token>.\x18\x01(\x01\x12\xa3\x01\n" +
+	"\x0fGetUserSettings\x12 .chill.v4.GetUserSettingsRequest\x1a\x16.chill.v4.UserSettings\"V\x92ASb\x10\n" +
 	"\x0e\n" +
 	"\n" +
-	"BearerAuth\x12\x00r@\n" +
-	">\n" +
-	"\rAuthorization\x12)Bearer auth token. Format: Bearer <token>\x18\x01(\x01\x12\xa6\x01\n" +
-	"\x10SaveUserSettings\x12!.chill.v4.SaveUserSettingsRequest\x1a\x16.chill.v4.UserSettings\"W\x92ATb\x10\n" +
+	"BearerAuth\x12\x00r?\n" +
+	"=\n" +
+	"\rAuthorization\x12(User auth token. Format: Bearer <token>.\x18\x01(\x01\x12\xa5\x01\n" +
+	"\x10SaveUserSettings\x12!.chill.v4.SaveUserSettingsRequest\x1a\x16.chill.v4.UserSettings\"V\x92ASb\x10\n" +
 	"\x0e\n" +
 	"\n" +
-	"BearerAuth\x12\x00r@\n" +
-	">\n" +
-	"\rAuthorization\x12)Bearer auth token. Format: Bearer <token>\x18\x01(\x01\x12\xa3\x01\n" +
-	"\vAddTransfer\x12\x1c.chill.v4.AddTransferRequest\x1a\x1d.chill.v4.AddTransferResponse\"W\x92ATb\x10\n" +
+	"BearerAuth\x12\x00r?\n" +
+	"=\n" +
+	"\rAuthorization\x12(User auth token. Format: Bearer <token>.\x18\x01(\x01\x12\xa2\x01\n" +
+	"\vAddTransfer\x12\x1c.chill.v4.AddTransferRequest\x1a\x1d.chill.v4.AddTransferResponse\"V\x92ASb\x10\n" +
 	"\x0e\n" +
 	"\n" +
-	"BearerAuth\x12\x00r@\n" +
-	">\n" +
-	"\rAuthorization\x12)Bearer auth token. Format: Bearer <token>\x18\x01(\x01\x12\xa3\x01\n" +
-	"\vGetTransfer\x12\x1c.chill.v4.GetTransferRequest\x1a\x1d.chill.v4.GetTransferResponse\"W\x92ATb\x10\n" +
+	"BearerAuth\x12\x00r?\n" +
+	"=\n" +
+	"\rAuthorization\x12(User auth token. Format: Bearer <token>.\x18\x01(\x01\x12\xa2\x01\n" +
+	"\vGetTransfer\x12\x1c.chill.v4.GetTransferRequest\x1a\x1d.chill.v4.GetTransferResponse\"V\x92ASb\x10\n" +
 	"\x0e\n" +
 	"\n" +
-	"BearerAuth\x12\x00r@\n" +
-	">\n" +
-	"\rAuthorization\x12)Bearer auth token. Format: Bearer <token>\x18\x01(\x01\x12\xb5\x01\n" +
-	"\x11GetDownloadFolder\x12\".chill.v4.GetDownloadFolderRequest\x1a#.chill.v4.GetDownloadFolderResponse\"W\x92ATb\x10\n" +
+	"BearerAuth\x12\x00r?\n" +
+	"=\n" +
+	"\rAuthorization\x12(User auth token. Format: Bearer <token>.\x18\x01(\x01\x12\xb4\x01\n" +
+	"\x11GetDownloadFolder\x12\".chill.v4.GetDownloadFolderRequest\x1a#.chill.v4.GetDownloadFolderResponse\"V\x92ASb\x10\n" +
 	"\x0e\n" +
 	"\n" +
-	"BearerAuth\x12\x00r@\n" +
-	">\n" +
-	"\rAuthorization\x12)Bearer auth token. Format: Bearer <token>\x18\x01(\x01\x12\x9d\x01\n" +
-	"\tGetFolder\x12\x1a.chill.v4.GetFolderRequest\x1a\x1b.chill.v4.GetFolderResponse\"W\x92ATb\x10\n" +
+	"BearerAuth\x12\x00r?\n" +
+	"=\n" +
+	"\rAuthorization\x12(User auth token. Format: Bearer <token>.\x18\x01(\x01\x12\x9c\x01\n" +
+	"\tGetFolder\x12\x1a.chill.v4.GetFolderRequest\x1a\x1b.chill.v4.GetFolderResponse\"V\x92ASb\x10\n" +
 	"\x0e\n" +
 	"\n" +
-	"BearerAuth\x12\x00r@\n" +
-	">\n" +
-	"\rAuthorization\x12)Bearer auth token. Format: Bearer <token>\x18\x01(\x01\x12\xa1\x01\n" +
-	"\x0eGetUserProfile\x12\x1f.chill.v4.GetUserProfileRequest\x1a\x15.chill.v4.UserProfile\"W\x92ATb\x10\n" +
+	"BearerAuth\x12\x00r?\n" +
+	"=\n" +
+	"\rAuthorization\x12(User auth token. Format: Bearer <token>.\x18\x01(\x01\x12\xa0\x01\n" +
+	"\x0eGetUserProfile\x12\x1f.chill.v4.GetUserProfileRequest\x1a\x15.chill.v4.UserProfile\"V\x92ASb\x10\n" +
 	"\x0e\n" +
 	"\n" +
-	"BearerAuth\x12\x00r@\n" +
-	">\n" +
-	"\rAuthorization\x12)Bearer auth token. Format: Bearer <token>\x18\x01(\x01B\x8a\x02\x92A`\x12\x15\n" +
-	"\x10Chill API v4 RPC2\x014\"\x03/v4ZB\n" +
-	"\x1d\n" +
+	"BearerAuth\x12\x00r?\n" +
+	"=\n" +
+	"\rAuthorization\x12(User auth token. Format: Bearer <token>.\x18\x01(\x01B\x9a\x03\x92A\xef\x01\x12\x15\n" +
+	"\x10Chill API v4 RPC2\x014\"\x03/v4Z\xd0\x01\n" +
+	"Z\n" +
 	"\n" +
-	"ApiKeyAuth\x12\x0f\b\x02\x1a\tX-API-Key \x02\n" +
-	"!\n" +
+	"ApiKeyAuth\x12L\b\x02\x12;Core API key. Send the key in X-API-Key. Do not use Bearer.\x1a\tX-API-Key \x02\n" +
+	"r\n" +
 	"\n" +
-	"BearerAuth\x12\x13\b\x02\x1a\rAuthorization \x02\n" +
+	"BearerAuth\x12d\b\x02\x12OUser auth token. Format: Bearer <token>. Do not send API keys as Bearer tokens.\x1a\rAuthorization \x02\n" +
 	"\fcom.chill.v4B\bApiProtoP\x01ZLgithub.com/chill-institute/chill-institute-contracts/gen/go/chill/v4;chillv4\xa2\x02\x03CXX\xaa\x02\bChill.V4\xca\x02\bChill\\V4\xe2\x02\x14Chill\\V4\\GPBMetadata\xea\x02\tChill::V4b\x06proto3"
 
 var (

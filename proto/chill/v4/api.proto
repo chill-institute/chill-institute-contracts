@@ -15,6 +15,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
       key: "ApiKeyAuth";
       value: {
         type: TYPE_API_KEY;
+        description: "Core API key. Send the key in X-API-Key. Do not use Bearer.";
         in: IN_HEADER;
         name: "X-API-Key";
       };
@@ -23,6 +24,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
       key: "BearerAuth";
       value: {
         type: TYPE_API_KEY;
+        description: "User auth token. Format: Bearer <token>. Do not send API keys as Bearer tokens.";
         in: IN_HEADER;
         name: "Authorization";
       };
@@ -117,7 +119,7 @@ service UserService {
       parameters: {
         headers: {
           name: "Authorization";
-          description: "Bearer auth token. Format: Bearer <token>";
+          description: "User auth token. Format: Bearer <token>.";
           type: STRING;
           required: true;
         };
@@ -135,7 +137,7 @@ service UserService {
       parameters: {
         headers: {
           name: "Authorization";
-          description: "Bearer auth token. Format: Bearer <token>";
+          description: "User auth token. Format: Bearer <token>.";
           type: STRING;
           required: true;
         };
@@ -153,7 +155,7 @@ service UserService {
       parameters: {
         headers: {
           name: "Authorization";
-          description: "Bearer auth token. Format: Bearer <token>";
+          description: "User auth token. Format: Bearer <token>.";
           type: STRING;
           required: true;
         };
@@ -171,7 +173,7 @@ service UserService {
       parameters: {
         headers: {
           name: "Authorization";
-          description: "Bearer auth token. Format: Bearer <token>";
+          description: "User auth token. Format: Bearer <token>.";
           type: STRING;
           required: true;
         };
@@ -189,7 +191,7 @@ service UserService {
       parameters: {
         headers: {
           name: "Authorization";
-          description: "Bearer auth token. Format: Bearer <token>";
+          description: "User auth token. Format: Bearer <token>.";
           type: STRING;
           required: true;
         };
@@ -207,7 +209,7 @@ service UserService {
       parameters: {
         headers: {
           name: "Authorization";
-          description: "Bearer auth token. Format: Bearer <token>";
+          description: "User auth token. Format: Bearer <token>.";
           type: STRING;
           required: true;
         };
@@ -225,7 +227,7 @@ service UserService {
       parameters: {
         headers: {
           name: "Authorization";
-          description: "Bearer auth token. Format: Bearer <token>";
+          description: "User auth token. Format: Bearer <token>.";
           type: STRING;
           required: true;
         };
@@ -243,7 +245,7 @@ service UserService {
       parameters: {
         headers: {
           name: "Authorization";
-          description: "Bearer auth token. Format: Bearer <token>";
+          description: "User auth token. Format: Bearer <token>.";
           type: STRING;
           required: true;
         };
@@ -261,7 +263,7 @@ service UserService {
       parameters: {
         headers: {
           name: "Authorization";
-          description: "Bearer auth token. Format: Bearer <token>";
+          description: "User auth token. Format: Bearer <token>.";
           type: STRING;
           required: true;
         };
@@ -279,7 +281,7 @@ service UserService {
       parameters: {
         headers: {
           name: "Authorization";
-          description: "Bearer auth token. Format: Bearer <token>";
+          description: "User auth token. Format: Bearer <token>.";
           type: STRING;
           required: true;
         };

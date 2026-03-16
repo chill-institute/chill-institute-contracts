@@ -138,7 +138,7 @@ paths:
           schema:
             $ref: '#/definitions/v4AddTransferRequest'
         - name: Authorization
-          description: 'Bearer auth token. Format: Bearer <token>'
+          description: 'User auth token. Format: Bearer <token>.'
           in: header
           required: true
           type: string
@@ -165,7 +165,7 @@ paths:
           schema:
             $ref: '#/definitions/v4GetDownloadFolderRequest'
         - name: Authorization
-          description: 'Bearer auth token. Format: Bearer <token>'
+          description: 'User auth token. Format: Bearer <token>.'
           in: header
           required: true
           type: string
@@ -192,7 +192,7 @@ paths:
           schema:
             $ref: '#/definitions/v4GetFolderRequest'
         - name: Authorization
-          description: 'Bearer auth token. Format: Bearer <token>'
+          description: 'User auth token. Format: Bearer <token>.'
           in: header
           required: true
           type: string
@@ -219,7 +219,7 @@ paths:
           schema:
             $ref: '#/definitions/v4UserGetIndexersRequest'
         - name: Authorization
-          description: 'Bearer auth token. Format: Bearer <token>'
+          description: 'User auth token. Format: Bearer <token>.'
           in: header
           required: true
           type: string
@@ -246,7 +246,7 @@ paths:
           schema:
             $ref: '#/definitions/v4UserGetTopMoviesRequest'
         - name: Authorization
-          description: 'Bearer auth token. Format: Bearer <token>'
+          description: 'User auth token. Format: Bearer <token>.'
           in: header
           required: true
           type: string
@@ -273,7 +273,7 @@ paths:
           schema:
             $ref: '#/definitions/v4GetTransferRequest'
         - name: Authorization
-          description: 'Bearer auth token. Format: Bearer <token>'
+          description: 'User auth token. Format: Bearer <token>.'
           in: header
           required: true
           type: string
@@ -300,7 +300,7 @@ paths:
           schema:
             $ref: '#/definitions/v4GetUserProfileRequest'
         - name: Authorization
-          description: 'Bearer auth token. Format: Bearer <token>'
+          description: 'User auth token. Format: Bearer <token>.'
           in: header
           required: true
           type: string
@@ -327,7 +327,7 @@ paths:
           schema:
             $ref: '#/definitions/v4GetUserSettingsRequest'
         - name: Authorization
-          description: 'Bearer auth token. Format: Bearer <token>'
+          description: 'User auth token. Format: Bearer <token>.'
           in: header
           required: true
           type: string
@@ -354,7 +354,7 @@ paths:
           schema:
             $ref: '#/definitions/v4SaveUserSettingsRequest'
         - name: Authorization
-          description: 'Bearer auth token. Format: Bearer <token>'
+          description: 'User auth token. Format: Bearer <token>.'
           in: header
           required: true
           type: string
@@ -381,7 +381,7 @@ paths:
           schema:
             $ref: '#/definitions/v4UserSearchRequest'
         - name: Authorization
-          description: 'Bearer auth token. Format: Bearer <token>'
+          description: 'User auth token. Format: Bearer <token>.'
           in: header
           required: true
           type: string
@@ -820,9 +820,11 @@ definitions:
 securityDefinitions:
   ApiKeyAuth:
     type: apiKey
+    description: Core API key. Send the key in X-API-Key. Do not use Bearer.
     name: X-API-Key
     in: header
   BearerAuth:
     type: apiKey
+    description: 'User auth token. Format: Bearer <token>. Do not send API keys as Bearer tokens.'
     name: Authorization
     in: header
