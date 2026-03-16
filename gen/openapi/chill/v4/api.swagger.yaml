@@ -512,8 +512,13 @@ definitions:
         type: array
         items:
           type: string
-      healthy:
-        type: boolean
+      status:
+        $ref: '#/definitions/v4IndexerStatus'
+  v4IndexerStatus:
+    type: string
+    enum:
+      - INDEXER_STATUS_HEALTHY
+      - INDEXER_STATUS_DOWN
   v4OtherFilter:
     type: string
     enum:
@@ -748,8 +753,8 @@ definitions:
         type: array
         items:
           type: string
-      healthy:
-        type: boolean
+      status:
+        $ref: '#/definitions/v4IndexerStatus'
   v4UserProfile:
     type: object
     properties:

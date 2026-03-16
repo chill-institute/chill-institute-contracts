@@ -22,6 +22,55 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type IndexerStatus int32
+
+const (
+	IndexerStatus_INDEXER_STATUS_UNSPECIFIED IndexerStatus = 0
+	IndexerStatus_INDEXER_STATUS_HEALTHY     IndexerStatus = 1
+	IndexerStatus_INDEXER_STATUS_DOWN        IndexerStatus = 2
+)
+
+// Enum value maps for IndexerStatus.
+var (
+	IndexerStatus_name = map[int32]string{
+		0: "INDEXER_STATUS_UNSPECIFIED",
+		1: "INDEXER_STATUS_HEALTHY",
+		2: "INDEXER_STATUS_DOWN",
+	}
+	IndexerStatus_value = map[string]int32{
+		"INDEXER_STATUS_UNSPECIFIED": 0,
+		"INDEXER_STATUS_HEALTHY":     1,
+		"INDEXER_STATUS_DOWN":        2,
+	}
+)
+
+func (x IndexerStatus) Enum() *IndexerStatus {
+	p := new(IndexerStatus)
+	*p = x
+	return p
+}
+
+func (x IndexerStatus) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (IndexerStatus) Descriptor() protoreflect.EnumDescriptor {
+	return file_chill_v4_api_proto_enumTypes[0].Descriptor()
+}
+
+func (IndexerStatus) Type() protoreflect.EnumType {
+	return &file_chill_v4_api_proto_enumTypes[0]
+}
+
+func (x IndexerStatus) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use IndexerStatus.Descriptor instead.
+func (IndexerStatus) EnumDescriptor() ([]byte, []int) {
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{0}
+}
+
 type TopMoviesSource int32
 
 const (
@@ -64,11 +113,11 @@ func (x TopMoviesSource) String() string {
 }
 
 func (TopMoviesSource) Descriptor() protoreflect.EnumDescriptor {
-	return file_chill_v4_api_proto_enumTypes[0].Descriptor()
+	return file_chill_v4_api_proto_enumTypes[1].Descriptor()
 }
 
 func (TopMoviesSource) Type() protoreflect.EnumType {
-	return &file_chill_v4_api_proto_enumTypes[0]
+	return &file_chill_v4_api_proto_enumTypes[1]
 }
 
 func (x TopMoviesSource) Number() protoreflect.EnumNumber {
@@ -77,7 +126,7 @@ func (x TopMoviesSource) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TopMoviesSource.Descriptor instead.
 func (TopMoviesSource) EnumDescriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{0}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{1}
 }
 
 type ResolutionFilter int32
@@ -116,11 +165,11 @@ func (x ResolutionFilter) String() string {
 }
 
 func (ResolutionFilter) Descriptor() protoreflect.EnumDescriptor {
-	return file_chill_v4_api_proto_enumTypes[1].Descriptor()
+	return file_chill_v4_api_proto_enumTypes[2].Descriptor()
 }
 
 func (ResolutionFilter) Type() protoreflect.EnumType {
-	return &file_chill_v4_api_proto_enumTypes[1]
+	return &file_chill_v4_api_proto_enumTypes[2]
 }
 
 func (x ResolutionFilter) Number() protoreflect.EnumNumber {
@@ -129,7 +178,7 @@ func (x ResolutionFilter) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ResolutionFilter.Descriptor instead.
 func (ResolutionFilter) EnumDescriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{1}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{2}
 }
 
 type CodecFilter int32
@@ -165,11 +214,11 @@ func (x CodecFilter) String() string {
 }
 
 func (CodecFilter) Descriptor() protoreflect.EnumDescriptor {
-	return file_chill_v4_api_proto_enumTypes[2].Descriptor()
+	return file_chill_v4_api_proto_enumTypes[3].Descriptor()
 }
 
 func (CodecFilter) Type() protoreflect.EnumType {
-	return &file_chill_v4_api_proto_enumTypes[2]
+	return &file_chill_v4_api_proto_enumTypes[3]
 }
 
 func (x CodecFilter) Number() protoreflect.EnumNumber {
@@ -178,7 +227,7 @@ func (x CodecFilter) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CodecFilter.Descriptor instead.
 func (CodecFilter) EnumDescriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{2}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{3}
 }
 
 type OtherFilter int32
@@ -211,11 +260,11 @@ func (x OtherFilter) String() string {
 }
 
 func (OtherFilter) Descriptor() protoreflect.EnumDescriptor {
-	return file_chill_v4_api_proto_enumTypes[3].Descriptor()
+	return file_chill_v4_api_proto_enumTypes[4].Descriptor()
 }
 
 func (OtherFilter) Type() protoreflect.EnumType {
-	return &file_chill_v4_api_proto_enumTypes[3]
+	return &file_chill_v4_api_proto_enumTypes[4]
 }
 
 func (x OtherFilter) Number() protoreflect.EnumNumber {
@@ -224,7 +273,7 @@ func (x OtherFilter) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use OtherFilter.Descriptor instead.
 func (OtherFilter) EnumDescriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{3}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{4}
 }
 
 type SearchResultDisplayBehavior int32
@@ -260,11 +309,11 @@ func (x SearchResultDisplayBehavior) String() string {
 }
 
 func (SearchResultDisplayBehavior) Descriptor() protoreflect.EnumDescriptor {
-	return file_chill_v4_api_proto_enumTypes[4].Descriptor()
+	return file_chill_v4_api_proto_enumTypes[5].Descriptor()
 }
 
 func (SearchResultDisplayBehavior) Type() protoreflect.EnumType {
-	return &file_chill_v4_api_proto_enumTypes[4]
+	return &file_chill_v4_api_proto_enumTypes[5]
 }
 
 func (x SearchResultDisplayBehavior) Number() protoreflect.EnumNumber {
@@ -273,7 +322,7 @@ func (x SearchResultDisplayBehavior) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SearchResultDisplayBehavior.Descriptor instead.
 func (SearchResultDisplayBehavior) EnumDescriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{4}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{5}
 }
 
 type SearchResultTitleBehavior int32
@@ -309,11 +358,11 @@ func (x SearchResultTitleBehavior) String() string {
 }
 
 func (SearchResultTitleBehavior) Descriptor() protoreflect.EnumDescriptor {
-	return file_chill_v4_api_proto_enumTypes[5].Descriptor()
+	return file_chill_v4_api_proto_enumTypes[6].Descriptor()
 }
 
 func (SearchResultTitleBehavior) Type() protoreflect.EnumType {
-	return &file_chill_v4_api_proto_enumTypes[5]
+	return &file_chill_v4_api_proto_enumTypes[6]
 }
 
 func (x SearchResultTitleBehavior) Number() protoreflect.EnumNumber {
@@ -322,7 +371,7 @@ func (x SearchResultTitleBehavior) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SearchResultTitleBehavior.Descriptor instead.
 func (SearchResultTitleBehavior) EnumDescriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{5}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{6}
 }
 
 type SortBy int32
@@ -367,11 +416,11 @@ func (x SortBy) String() string {
 }
 
 func (SortBy) Descriptor() protoreflect.EnumDescriptor {
-	return file_chill_v4_api_proto_enumTypes[6].Descriptor()
+	return file_chill_v4_api_proto_enumTypes[7].Descriptor()
 }
 
 func (SortBy) Type() protoreflect.EnumType {
-	return &file_chill_v4_api_proto_enumTypes[6]
+	return &file_chill_v4_api_proto_enumTypes[7]
 }
 
 func (x SortBy) Number() protoreflect.EnumNumber {
@@ -380,7 +429,7 @@ func (x SortBy) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SortBy.Descriptor instead.
 func (SortBy) EnumDescriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{6}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{7}
 }
 
 type SortDirection int32
@@ -416,11 +465,11 @@ func (x SortDirection) String() string {
 }
 
 func (SortDirection) Descriptor() protoreflect.EnumDescriptor {
-	return file_chill_v4_api_proto_enumTypes[7].Descriptor()
+	return file_chill_v4_api_proto_enumTypes[8].Descriptor()
 }
 
 func (SortDirection) Type() protoreflect.EnumType {
-	return &file_chill_v4_api_proto_enumTypes[7]
+	return &file_chill_v4_api_proto_enumTypes[8]
 }
 
 func (x SortDirection) Number() protoreflect.EnumNumber {
@@ -429,7 +478,7 @@ func (x SortDirection) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SortDirection.Descriptor instead.
 func (SortDirection) EnumDescriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{7}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{8}
 }
 
 type TopMoviesDisplayType int32
@@ -465,11 +514,11 @@ func (x TopMoviesDisplayType) String() string {
 }
 
 func (TopMoviesDisplayType) Descriptor() protoreflect.EnumDescriptor {
-	return file_chill_v4_api_proto_enumTypes[8].Descriptor()
+	return file_chill_v4_api_proto_enumTypes[9].Descriptor()
 }
 
 func (TopMoviesDisplayType) Type() protoreflect.EnumType {
-	return &file_chill_v4_api_proto_enumTypes[8]
+	return &file_chill_v4_api_proto_enumTypes[9]
 }
 
 func (x TopMoviesDisplayType) Number() protoreflect.EnumNumber {
@@ -478,7 +527,7 @@ func (x TopMoviesDisplayType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TopMoviesDisplayType.Descriptor instead.
 func (TopMoviesDisplayType) EnumDescriptor() ([]byte, []int) {
-	return file_chill_v4_api_proto_rawDescGZIP(), []int{8}
+	return file_chill_v4_api_proto_rawDescGZIP(), []int{9}
 }
 
 type HealthCheckRequest struct {
@@ -602,7 +651,7 @@ type Indexer struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Tags          []string               `protobuf:"bytes,3,rep,name=tags,proto3" json:"tags,omitempty"`
-	Healthy       bool                   `protobuf:"varint,5,opt,name=healthy,proto3" json:"healthy,omitempty"`
+	Status        *IndexerStatus         `protobuf:"varint,6,opt,name=status,proto3,enum=chill.v4.IndexerStatus,oneof" json:"status,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -658,11 +707,11 @@ func (x *Indexer) GetTags() []string {
 	return nil
 }
 
-func (x *Indexer) GetHealthy() bool {
-	if x != nil {
-		return x.Healthy
+func (x *Indexer) GetStatus() IndexerStatus {
+	if x != nil && x.Status != nil {
+		return *x.Status
 	}
-	return false
+	return IndexerStatus_INDEXER_STATUS_UNSPECIFIED
 }
 
 type CoreGetIndexersResponse struct {
@@ -795,7 +844,7 @@ type UserIndexer struct {
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Enabled       bool                   `protobuf:"varint,3,opt,name=enabled,proto3" json:"enabled,omitempty"`
 	Tags          []string               `protobuf:"bytes,4,rep,name=tags,proto3" json:"tags,omitempty"`
-	Healthy       bool                   `protobuf:"varint,6,opt,name=healthy,proto3" json:"healthy,omitempty"`
+	Status        *IndexerStatus         `protobuf:"varint,7,opt,name=status,proto3,enum=chill.v4.IndexerStatus,oneof" json:"status,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -858,11 +907,11 @@ func (x *UserIndexer) GetTags() []string {
 	return nil
 }
 
-func (x *UserIndexer) GetHealthy() bool {
-	if x != nil {
-		return x.Healthy
+func (x *UserIndexer) GetStatus() IndexerStatus {
+	if x != nil && x.Status != nil {
+		return *x.Status
 	}
-	return false
+	return IndexerStatus_INDEXER_STATUS_UNSPECIFIED
 }
 
 type CoreSearchRequest struct {
@@ -2465,23 +2514,25 @@ const file_chill_v4_api_proto_rawDesc = "" +
 	"\x12HealthCheckRequest\"(\n" +
 	"\x0eHealthResponse\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\tR\x06status\"\x18\n" +
-	"\x16CoreGetIndexersRequest\"a\n" +
+	"\x16CoreGetIndexersRequest\"\x97\x01\n" +
 	"\aIndexer\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x12\n" +
-	"\x04tags\x18\x03 \x03(\tR\x04tags\x12\x18\n" +
-	"\ahealthy\x18\x05 \x01(\bR\ahealthyJ\x04\b\x04\x10\x05\"H\n" +
+	"\x04tags\x18\x03 \x03(\tR\x04tags\x124\n" +
+	"\x06status\x18\x06 \x01(\x0e2\x17.chill.v4.IndexerStatusH\x00R\x06status\x88\x01\x01B\t\n" +
+	"\a_statusJ\x04\b\x04\x10\x05J\x04\b\x05\x10\x06R\ahealthy\"H\n" +
 	"\x17CoreGetIndexersResponse\x12-\n" +
 	"\bindexers\x18\x01 \x03(\v2\x11.chill.v4.IndexerR\bindexers\"\x18\n" +
 	"\x16UserGetIndexersRequest\"L\n" +
 	"\x17UserGetIndexersResponse\x121\n" +
-	"\bindexers\x18\x01 \x03(\v2\x15.chill.v4.UserIndexerR\bindexers\"\x7f\n" +
+	"\bindexers\x18\x01 \x03(\v2\x15.chill.v4.UserIndexerR\bindexers\"\xb5\x01\n" +
 	"\vUserIndexer\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
 	"\aenabled\x18\x03 \x01(\bR\aenabled\x12\x12\n" +
-	"\x04tags\x18\x04 \x03(\tR\x04tags\x12\x18\n" +
-	"\ahealthy\x18\x06 \x01(\bR\ahealthyJ\x04\b\x05\x10\x06\")\n" +
+	"\x04tags\x18\x04 \x03(\tR\x04tags\x124\n" +
+	"\x06status\x18\a \x01(\x0e2\x17.chill.v4.IndexerStatusH\x00R\x06status\x88\x01\x01B\t\n" +
+	"\a_statusJ\x04\b\x05\x10\x06J\x04\b\x06\x10\aR\ahealthy\")\n" +
 	"\x11CoreSearchRequest\x12\x14\n" +
 	"\x05query\x18\x01 \x01(\tR\x05query\"\x89\x02\n" +
 	"\fSearchResult\x12\x0e\n" +
@@ -2624,7 +2675,11 @@ const file_chill_v4_api_proto_rawDesc = "" +
 	"\busername\x18\x02 \x01(\tR\busername\x12\x1d\n" +
 	"\n" +
 	"avatar_url\x18\x03 \x01(\tR\tavatarUrl\x12\x14\n" +
-	"\x05email\x18\x04 \x01(\tR\x05email*\xde\x01\n" +
+	"\x05email\x18\x04 \x01(\tR\x05email*d\n" +
+	"\rIndexerStatus\x12\x1e\n" +
+	"\x1aINDEXER_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n" +
+	"\x16INDEXER_STATUS_HEALTHY\x10\x01\x12\x17\n" +
+	"\x13INDEXER_STATUS_DOWN\x10\x02*\xde\x01\n" +
 	"\x0fTopMoviesSource\x12!\n" +
 	"\x1dTOP_MOVIES_SOURCE_UNSPECIFIED\x10\x00\x12%\n" +
 	"!TOP_MOVIES_SOURCE_IMDB_MOVIEMETER\x10\x01\x12\"\n" +
@@ -2774,109 +2829,112 @@ func file_chill_v4_api_proto_rawDescGZIP() []byte {
 	return file_chill_v4_api_proto_rawDescData
 }
 
-var file_chill_v4_api_proto_enumTypes = make([]protoimpl.EnumInfo, 9)
+var file_chill_v4_api_proto_enumTypes = make([]protoimpl.EnumInfo, 10)
 var file_chill_v4_api_proto_msgTypes = make([]protoimpl.MessageInfo, 32)
 var file_chill_v4_api_proto_goTypes = []any{
-	(TopMoviesSource)(0),                 // 0: chill.v4.TopMoviesSource
-	(ResolutionFilter)(0),                // 1: chill.v4.ResolutionFilter
-	(CodecFilter)(0),                     // 2: chill.v4.CodecFilter
-	(OtherFilter)(0),                     // 3: chill.v4.OtherFilter
-	(SearchResultDisplayBehavior)(0),     // 4: chill.v4.SearchResultDisplayBehavior
-	(SearchResultTitleBehavior)(0),       // 5: chill.v4.SearchResultTitleBehavior
-	(SortBy)(0),                          // 6: chill.v4.SortBy
-	(SortDirection)(0),                   // 7: chill.v4.SortDirection
-	(TopMoviesDisplayType)(0),            // 8: chill.v4.TopMoviesDisplayType
-	(*HealthCheckRequest)(nil),           // 9: chill.v4.HealthCheckRequest
-	(*HealthResponse)(nil),               // 10: chill.v4.HealthResponse
-	(*CoreGetIndexersRequest)(nil),       // 11: chill.v4.CoreGetIndexersRequest
-	(*Indexer)(nil),                      // 12: chill.v4.Indexer
-	(*CoreGetIndexersResponse)(nil),      // 13: chill.v4.CoreGetIndexersResponse
-	(*UserGetIndexersRequest)(nil),       // 14: chill.v4.UserGetIndexersRequest
-	(*UserGetIndexersResponse)(nil),      // 15: chill.v4.UserGetIndexersResponse
-	(*UserIndexer)(nil),                  // 16: chill.v4.UserIndexer
-	(*CoreSearchRequest)(nil),            // 17: chill.v4.CoreSearchRequest
-	(*SearchResult)(nil),                 // 18: chill.v4.SearchResult
-	(*SearchResponse)(nil),               // 19: chill.v4.SearchResponse
-	(*UserSearchRequest)(nil),            // 20: chill.v4.UserSearchRequest
-	(*GetTopMoviesBySourceRequest)(nil),  // 21: chill.v4.GetTopMoviesBySourceRequest
-	(*TopMovie)(nil),                     // 22: chill.v4.TopMovie
-	(*GetTopMoviesBySourceResponse)(nil), // 23: chill.v4.GetTopMoviesBySourceResponse
-	(*UserGetTopMoviesRequest)(nil),      // 24: chill.v4.UserGetTopMoviesRequest
-	(*UserGetTopMoviesResponse)(nil),     // 25: chill.v4.UserGetTopMoviesResponse
-	(*GetUserSettingsRequest)(nil),       // 26: chill.v4.GetUserSettingsRequest
-	(*UserSettings)(nil),                 // 27: chill.v4.UserSettings
-	(*SaveUserSettingsRequest)(nil),      // 28: chill.v4.SaveUserSettingsRequest
-	(*AddTransferRequest)(nil),           // 29: chill.v4.AddTransferRequest
-	(*AddTransferResponse)(nil),          // 30: chill.v4.AddTransferResponse
-	(*GetTransferRequest)(nil),           // 31: chill.v4.GetTransferRequest
-	(*GetTransferResponse)(nil),          // 32: chill.v4.GetTransferResponse
-	(*Transfer)(nil),                     // 33: chill.v4.Transfer
-	(*GetDownloadFolderRequest)(nil),     // 34: chill.v4.GetDownloadFolderRequest
-	(*GetDownloadFolderResponse)(nil),    // 35: chill.v4.GetDownloadFolderResponse
-	(*GetFolderRequest)(nil),             // 36: chill.v4.GetFolderRequest
-	(*UserFile)(nil),                     // 37: chill.v4.UserFile
-	(*GetFolderResponse)(nil),            // 38: chill.v4.GetFolderResponse
-	(*GetUserProfileRequest)(nil),        // 39: chill.v4.GetUserProfileRequest
-	(*UserProfile)(nil),                  // 40: chill.v4.UserProfile
+	(IndexerStatus)(0),                   // 0: chill.v4.IndexerStatus
+	(TopMoviesSource)(0),                 // 1: chill.v4.TopMoviesSource
+	(ResolutionFilter)(0),                // 2: chill.v4.ResolutionFilter
+	(CodecFilter)(0),                     // 3: chill.v4.CodecFilter
+	(OtherFilter)(0),                     // 4: chill.v4.OtherFilter
+	(SearchResultDisplayBehavior)(0),     // 5: chill.v4.SearchResultDisplayBehavior
+	(SearchResultTitleBehavior)(0),       // 6: chill.v4.SearchResultTitleBehavior
+	(SortBy)(0),                          // 7: chill.v4.SortBy
+	(SortDirection)(0),                   // 8: chill.v4.SortDirection
+	(TopMoviesDisplayType)(0),            // 9: chill.v4.TopMoviesDisplayType
+	(*HealthCheckRequest)(nil),           // 10: chill.v4.HealthCheckRequest
+	(*HealthResponse)(nil),               // 11: chill.v4.HealthResponse
+	(*CoreGetIndexersRequest)(nil),       // 12: chill.v4.CoreGetIndexersRequest
+	(*Indexer)(nil),                      // 13: chill.v4.Indexer
+	(*CoreGetIndexersResponse)(nil),      // 14: chill.v4.CoreGetIndexersResponse
+	(*UserGetIndexersRequest)(nil),       // 15: chill.v4.UserGetIndexersRequest
+	(*UserGetIndexersResponse)(nil),      // 16: chill.v4.UserGetIndexersResponse
+	(*UserIndexer)(nil),                  // 17: chill.v4.UserIndexer
+	(*CoreSearchRequest)(nil),            // 18: chill.v4.CoreSearchRequest
+	(*SearchResult)(nil),                 // 19: chill.v4.SearchResult
+	(*SearchResponse)(nil),               // 20: chill.v4.SearchResponse
+	(*UserSearchRequest)(nil),            // 21: chill.v4.UserSearchRequest
+	(*GetTopMoviesBySourceRequest)(nil),  // 22: chill.v4.GetTopMoviesBySourceRequest
+	(*TopMovie)(nil),                     // 23: chill.v4.TopMovie
+	(*GetTopMoviesBySourceResponse)(nil), // 24: chill.v4.GetTopMoviesBySourceResponse
+	(*UserGetTopMoviesRequest)(nil),      // 25: chill.v4.UserGetTopMoviesRequest
+	(*UserGetTopMoviesResponse)(nil),     // 26: chill.v4.UserGetTopMoviesResponse
+	(*GetUserSettingsRequest)(nil),       // 27: chill.v4.GetUserSettingsRequest
+	(*UserSettings)(nil),                 // 28: chill.v4.UserSettings
+	(*SaveUserSettingsRequest)(nil),      // 29: chill.v4.SaveUserSettingsRequest
+	(*AddTransferRequest)(nil),           // 30: chill.v4.AddTransferRequest
+	(*AddTransferResponse)(nil),          // 31: chill.v4.AddTransferResponse
+	(*GetTransferRequest)(nil),           // 32: chill.v4.GetTransferRequest
+	(*GetTransferResponse)(nil),          // 33: chill.v4.GetTransferResponse
+	(*Transfer)(nil),                     // 34: chill.v4.Transfer
+	(*GetDownloadFolderRequest)(nil),     // 35: chill.v4.GetDownloadFolderRequest
+	(*GetDownloadFolderResponse)(nil),    // 36: chill.v4.GetDownloadFolderResponse
+	(*GetFolderRequest)(nil),             // 37: chill.v4.GetFolderRequest
+	(*UserFile)(nil),                     // 38: chill.v4.UserFile
+	(*GetFolderResponse)(nil),            // 39: chill.v4.GetFolderResponse
+	(*GetUserProfileRequest)(nil),        // 40: chill.v4.GetUserProfileRequest
+	(*UserProfile)(nil),                  // 41: chill.v4.UserProfile
 }
 var file_chill_v4_api_proto_depIdxs = []int32{
-	12, // 0: chill.v4.CoreGetIndexersResponse.indexers:type_name -> chill.v4.Indexer
-	16, // 1: chill.v4.UserGetIndexersResponse.indexers:type_name -> chill.v4.UserIndexer
-	18, // 2: chill.v4.SearchResponse.results:type_name -> chill.v4.SearchResult
-	0,  // 3: chill.v4.GetTopMoviesBySourceRequest.source:type_name -> chill.v4.TopMoviesSource
-	0,  // 4: chill.v4.TopMovie.source:type_name -> chill.v4.TopMoviesSource
-	0,  // 5: chill.v4.GetTopMoviesBySourceResponse.source:type_name -> chill.v4.TopMoviesSource
-	22, // 6: chill.v4.GetTopMoviesBySourceResponse.movies:type_name -> chill.v4.TopMovie
-	0,  // 7: chill.v4.UserGetTopMoviesResponse.source:type_name -> chill.v4.TopMoviesSource
-	22, // 8: chill.v4.UserGetTopMoviesResponse.movies:type_name -> chill.v4.TopMovie
-	2,  // 9: chill.v4.UserSettings.codec_filters:type_name -> chill.v4.CodecFilter
-	3,  // 10: chill.v4.UserSettings.other_filters:type_name -> chill.v4.OtherFilter
-	1,  // 11: chill.v4.UserSettings.resolution_filters:type_name -> chill.v4.ResolutionFilter
-	4,  // 12: chill.v4.UserSettings.search_result_display_behavior:type_name -> chill.v4.SearchResultDisplayBehavior
-	5,  // 13: chill.v4.UserSettings.search_result_title_behavior:type_name -> chill.v4.SearchResultTitleBehavior
-	6,  // 14: chill.v4.UserSettings.sort_by:type_name -> chill.v4.SortBy
-	7,  // 15: chill.v4.UserSettings.sort_direction:type_name -> chill.v4.SortDirection
-	8,  // 16: chill.v4.UserSettings.top_movies_display_type:type_name -> chill.v4.TopMoviesDisplayType
-	0,  // 17: chill.v4.UserSettings.top_movies_source:type_name -> chill.v4.TopMoviesSource
-	27, // 18: chill.v4.SaveUserSettingsRequest.settings:type_name -> chill.v4.UserSettings
-	33, // 19: chill.v4.AddTransferResponse.transfer:type_name -> chill.v4.Transfer
-	33, // 20: chill.v4.GetTransferResponse.transfer:type_name -> chill.v4.Transfer
-	37, // 21: chill.v4.GetDownloadFolderResponse.folder:type_name -> chill.v4.UserFile
-	37, // 22: chill.v4.GetFolderResponse.parent:type_name -> chill.v4.UserFile
-	37, // 23: chill.v4.GetFolderResponse.files:type_name -> chill.v4.UserFile
-	9,  // 24: chill.v4.CoreService.HealthCheck:input_type -> chill.v4.HealthCheckRequest
-	11, // 25: chill.v4.CoreService.GetIndexers:input_type -> chill.v4.CoreGetIndexersRequest
-	17, // 26: chill.v4.CoreService.Search:input_type -> chill.v4.CoreSearchRequest
-	21, // 27: chill.v4.CoreService.GetTopMoviesBySource:input_type -> chill.v4.GetTopMoviesBySourceRequest
-	14, // 28: chill.v4.UserService.GetIndexers:input_type -> chill.v4.UserGetIndexersRequest
-	20, // 29: chill.v4.UserService.Search:input_type -> chill.v4.UserSearchRequest
-	24, // 30: chill.v4.UserService.GetTopMovies:input_type -> chill.v4.UserGetTopMoviesRequest
-	26, // 31: chill.v4.UserService.GetUserSettings:input_type -> chill.v4.GetUserSettingsRequest
-	28, // 32: chill.v4.UserService.SaveUserSettings:input_type -> chill.v4.SaveUserSettingsRequest
-	29, // 33: chill.v4.UserService.AddTransfer:input_type -> chill.v4.AddTransferRequest
-	31, // 34: chill.v4.UserService.GetTransfer:input_type -> chill.v4.GetTransferRequest
-	34, // 35: chill.v4.UserService.GetDownloadFolder:input_type -> chill.v4.GetDownloadFolderRequest
-	36, // 36: chill.v4.UserService.GetFolder:input_type -> chill.v4.GetFolderRequest
-	39, // 37: chill.v4.UserService.GetUserProfile:input_type -> chill.v4.GetUserProfileRequest
-	10, // 38: chill.v4.CoreService.HealthCheck:output_type -> chill.v4.HealthResponse
-	13, // 39: chill.v4.CoreService.GetIndexers:output_type -> chill.v4.CoreGetIndexersResponse
-	19, // 40: chill.v4.CoreService.Search:output_type -> chill.v4.SearchResponse
-	23, // 41: chill.v4.CoreService.GetTopMoviesBySource:output_type -> chill.v4.GetTopMoviesBySourceResponse
-	15, // 42: chill.v4.UserService.GetIndexers:output_type -> chill.v4.UserGetIndexersResponse
-	19, // 43: chill.v4.UserService.Search:output_type -> chill.v4.SearchResponse
-	25, // 44: chill.v4.UserService.GetTopMovies:output_type -> chill.v4.UserGetTopMoviesResponse
-	27, // 45: chill.v4.UserService.GetUserSettings:output_type -> chill.v4.UserSettings
-	27, // 46: chill.v4.UserService.SaveUserSettings:output_type -> chill.v4.UserSettings
-	30, // 47: chill.v4.UserService.AddTransfer:output_type -> chill.v4.AddTransferResponse
-	32, // 48: chill.v4.UserService.GetTransfer:output_type -> chill.v4.GetTransferResponse
-	35, // 49: chill.v4.UserService.GetDownloadFolder:output_type -> chill.v4.GetDownloadFolderResponse
-	38, // 50: chill.v4.UserService.GetFolder:output_type -> chill.v4.GetFolderResponse
-	40, // 51: chill.v4.UserService.GetUserProfile:output_type -> chill.v4.UserProfile
-	38, // [38:52] is the sub-list for method output_type
-	24, // [24:38] is the sub-list for method input_type
-	24, // [24:24] is the sub-list for extension type_name
-	24, // [24:24] is the sub-list for extension extendee
-	0,  // [0:24] is the sub-list for field type_name
+	0,  // 0: chill.v4.Indexer.status:type_name -> chill.v4.IndexerStatus
+	13, // 1: chill.v4.CoreGetIndexersResponse.indexers:type_name -> chill.v4.Indexer
+	17, // 2: chill.v4.UserGetIndexersResponse.indexers:type_name -> chill.v4.UserIndexer
+	0,  // 3: chill.v4.UserIndexer.status:type_name -> chill.v4.IndexerStatus
+	19, // 4: chill.v4.SearchResponse.results:type_name -> chill.v4.SearchResult
+	1,  // 5: chill.v4.GetTopMoviesBySourceRequest.source:type_name -> chill.v4.TopMoviesSource
+	1,  // 6: chill.v4.TopMovie.source:type_name -> chill.v4.TopMoviesSource
+	1,  // 7: chill.v4.GetTopMoviesBySourceResponse.source:type_name -> chill.v4.TopMoviesSource
+	23, // 8: chill.v4.GetTopMoviesBySourceResponse.movies:type_name -> chill.v4.TopMovie
+	1,  // 9: chill.v4.UserGetTopMoviesResponse.source:type_name -> chill.v4.TopMoviesSource
+	23, // 10: chill.v4.UserGetTopMoviesResponse.movies:type_name -> chill.v4.TopMovie
+	3,  // 11: chill.v4.UserSettings.codec_filters:type_name -> chill.v4.CodecFilter
+	4,  // 12: chill.v4.UserSettings.other_filters:type_name -> chill.v4.OtherFilter
+	2,  // 13: chill.v4.UserSettings.resolution_filters:type_name -> chill.v4.ResolutionFilter
+	5,  // 14: chill.v4.UserSettings.search_result_display_behavior:type_name -> chill.v4.SearchResultDisplayBehavior
+	6,  // 15: chill.v4.UserSettings.search_result_title_behavior:type_name -> chill.v4.SearchResultTitleBehavior
+	7,  // 16: chill.v4.UserSettings.sort_by:type_name -> chill.v4.SortBy
+	8,  // 17: chill.v4.UserSettings.sort_direction:type_name -> chill.v4.SortDirection
+	9,  // 18: chill.v4.UserSettings.top_movies_display_type:type_name -> chill.v4.TopMoviesDisplayType
+	1,  // 19: chill.v4.UserSettings.top_movies_source:type_name -> chill.v4.TopMoviesSource
+	28, // 20: chill.v4.SaveUserSettingsRequest.settings:type_name -> chill.v4.UserSettings
+	34, // 21: chill.v4.AddTransferResponse.transfer:type_name -> chill.v4.Transfer
+	34, // 22: chill.v4.GetTransferResponse.transfer:type_name -> chill.v4.Transfer
+	38, // 23: chill.v4.GetDownloadFolderResponse.folder:type_name -> chill.v4.UserFile
+	38, // 24: chill.v4.GetFolderResponse.parent:type_name -> chill.v4.UserFile
+	38, // 25: chill.v4.GetFolderResponse.files:type_name -> chill.v4.UserFile
+	10, // 26: chill.v4.CoreService.HealthCheck:input_type -> chill.v4.HealthCheckRequest
+	12, // 27: chill.v4.CoreService.GetIndexers:input_type -> chill.v4.CoreGetIndexersRequest
+	18, // 28: chill.v4.CoreService.Search:input_type -> chill.v4.CoreSearchRequest
+	22, // 29: chill.v4.CoreService.GetTopMoviesBySource:input_type -> chill.v4.GetTopMoviesBySourceRequest
+	15, // 30: chill.v4.UserService.GetIndexers:input_type -> chill.v4.UserGetIndexersRequest
+	21, // 31: chill.v4.UserService.Search:input_type -> chill.v4.UserSearchRequest
+	25, // 32: chill.v4.UserService.GetTopMovies:input_type -> chill.v4.UserGetTopMoviesRequest
+	27, // 33: chill.v4.UserService.GetUserSettings:input_type -> chill.v4.GetUserSettingsRequest
+	29, // 34: chill.v4.UserService.SaveUserSettings:input_type -> chill.v4.SaveUserSettingsRequest
+	30, // 35: chill.v4.UserService.AddTransfer:input_type -> chill.v4.AddTransferRequest
+	32, // 36: chill.v4.UserService.GetTransfer:input_type -> chill.v4.GetTransferRequest
+	35, // 37: chill.v4.UserService.GetDownloadFolder:input_type -> chill.v4.GetDownloadFolderRequest
+	37, // 38: chill.v4.UserService.GetFolder:input_type -> chill.v4.GetFolderRequest
+	40, // 39: chill.v4.UserService.GetUserProfile:input_type -> chill.v4.GetUserProfileRequest
+	11, // 40: chill.v4.CoreService.HealthCheck:output_type -> chill.v4.HealthResponse
+	14, // 41: chill.v4.CoreService.GetIndexers:output_type -> chill.v4.CoreGetIndexersResponse
+	20, // 42: chill.v4.CoreService.Search:output_type -> chill.v4.SearchResponse
+	24, // 43: chill.v4.CoreService.GetTopMoviesBySource:output_type -> chill.v4.GetTopMoviesBySourceResponse
+	16, // 44: chill.v4.UserService.GetIndexers:output_type -> chill.v4.UserGetIndexersResponse
+	20, // 45: chill.v4.UserService.Search:output_type -> chill.v4.SearchResponse
+	26, // 46: chill.v4.UserService.GetTopMovies:output_type -> chill.v4.UserGetTopMoviesResponse
+	28, // 47: chill.v4.UserService.GetUserSettings:output_type -> chill.v4.UserSettings
+	28, // 48: chill.v4.UserService.SaveUserSettings:output_type -> chill.v4.UserSettings
+	31, // 49: chill.v4.UserService.AddTransfer:output_type -> chill.v4.AddTransferResponse
+	33, // 50: chill.v4.UserService.GetTransfer:output_type -> chill.v4.GetTransferResponse
+	36, // 51: chill.v4.UserService.GetDownloadFolder:output_type -> chill.v4.GetDownloadFolderResponse
+	39, // 52: chill.v4.UserService.GetFolder:output_type -> chill.v4.GetFolderResponse
+	41, // 53: chill.v4.UserService.GetUserProfile:output_type -> chill.v4.UserProfile
+	40, // [40:54] is the sub-list for method output_type
+	26, // [26:40] is the sub-list for method input_type
+	26, // [26:26] is the sub-list for extension type_name
+	26, // [26:26] is the sub-list for extension extendee
+	0,  // [0:26] is the sub-list for field type_name
 }
 
 func init() { file_chill_v4_api_proto_init() }
@@ -2884,6 +2942,8 @@ func file_chill_v4_api_proto_init() {
 	if File_chill_v4_api_proto != nil {
 		return
 	}
+	file_chill_v4_api_proto_msgTypes[3].OneofWrappers = []any{}
+	file_chill_v4_api_proto_msgTypes[7].OneofWrappers = []any{}
 	file_chill_v4_api_proto_msgTypes[9].OneofWrappers = []any{}
 	file_chill_v4_api_proto_msgTypes[11].OneofWrappers = []any{}
 	file_chill_v4_api_proto_msgTypes[18].OneofWrappers = []any{}
@@ -2893,7 +2953,7 @@ func file_chill_v4_api_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_chill_v4_api_proto_rawDesc), len(file_chill_v4_api_proto_rawDesc)),
-			NumEnums:      9,
+			NumEnums:      10,
 			NumMessages:   32,
 			NumExtensions: 0,
 			NumServices:   2,

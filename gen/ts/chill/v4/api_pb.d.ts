@@ -70,9 +70,9 @@ export declare type Indexer = Message<"chill.v4.Indexer"> & {
   tags: string[];
 
   /**
-   * @generated from field: bool healthy = 5;
+   * @generated from field: optional chill.v4.IndexerStatus status = 6;
    */
-  healthy: boolean;
+  status?: IndexerStatus;
 };
 
 /**
@@ -150,9 +150,9 @@ export declare type UserIndexer = Message<"chill.v4.UserIndexer"> & {
   tags: string[];
 
   /**
-   * @generated from field: bool healthy = 6;
+   * @generated from field: optional chill.v4.IndexerStatus status = 7;
    */
-  healthy: boolean;
+  status?: IndexerStatus;
 };
 
 /**
@@ -883,6 +883,31 @@ export declare type UserProfile = Message<"chill.v4.UserProfile"> & {
  * Use `create(UserProfileSchema)` to create a new message.
  */
 export declare const UserProfileSchema: GenMessage<UserProfile>;
+
+/**
+ * @generated from enum chill.v4.IndexerStatus
+ */
+export enum IndexerStatus {
+  /**
+   * @generated from enum value: INDEXER_STATUS_UNSPECIFIED = 0;
+   */
+  UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: INDEXER_STATUS_HEALTHY = 1;
+   */
+  HEALTHY = 1,
+
+  /**
+   * @generated from enum value: INDEXER_STATUS_DOWN = 2;
+   */
+  DOWN = 2,
+}
+
+/**
+ * Describes the enum chill.v4.IndexerStatus.
+ */
+export declare const IndexerStatusSchema: GenEnum<IndexerStatus>;
 
 /**
  * @generated from enum chill.v4.TopMoviesSource

@@ -294,14 +294,21 @@ message HealthResponse {
   string status = 1;
 }
 
+enum IndexerStatus {
+  INDEXER_STATUS_UNSPECIFIED = 0;
+  INDEXER_STATUS_HEALTHY = 1;
+  INDEXER_STATUS_DOWN = 2;
+}
+
 message CoreGetIndexersRequest {}
 
 message Indexer {
   string id = 1;
   string name = 2;
   repeated string tags = 3;
-  reserved 4;
-  bool healthy = 5;
+  reserved 4, 5;
+  reserved "healthy";
+  optional IndexerStatus status = 6;
 }
 
 message CoreGetIndexersResponse {
@@ -319,8 +326,9 @@ message UserIndexer {
   string name = 2;
   bool enabled = 3;
   repeated string tags = 4;
-  reserved 5;
-  bool healthy = 6;
+  reserved 5, 6;
+  reserved "healthy";
+  optional IndexerStatus status = 7;
 }
 
 message CoreSearchRequest {
