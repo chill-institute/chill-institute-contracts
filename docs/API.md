@@ -6,23 +6,15 @@ Entry point for the public `chill.institute` API docs.
 
 | Surface | URL |
 |---------|-----|
-| API host | `https://api.chill.institute` |
-| v4 docs UI | `https://api.chill.institute/v4` |
-| v4 OpenAPI doc | `https://api.chill.institute/v4/docs` |
-| v4 RPC base | `https://api.chill.institute/v4` |
-| Core service prefix | `https://api.chill.institute/v4/chill.v4.CoreService/*` |
-| User service prefix | `https://api.chill.institute/v4/chill.v4.UserService/*` |
-| v3 compatibility | `https://api.chill.institute/v3` |
+| API host | https://api.chill.institute |
+| v4 OpenAPI doc | https://api.chill.institute/v4 |
 
 ## Auth
 
 | Surface | Header | Format |
 |---------|--------|--------|
-| `CoreService` | `X-API-Key` | raw API key |
-| `UserService` | `Authorization` | `Bearer <token>` |
-| v3 compatibility | `X-API-Key` or user bearer token | deprecated |
-
-Do not send API keys as `Authorization: Bearer ...`.
+| `v4.CoreService` | `X-API-Key` | Service key |
+| `v4.UserService` | `Authorization` | User Token: `Bearer <token>` |
 
 ## Source Of Truth
 
@@ -33,4 +25,4 @@ The schema lives in:
 - `gen/go/chill/v4/`
 - `gen/ts/chill/v4/`
 
-Use the generated OpenAPI and generated client artifacts for field-level request and response details. Keep this page short and update it only when service URLs, auth, or doc entry points change.
+Use the generated OpenAPI and generated client artifacts for field-level request and response details.
