@@ -16,6 +16,11 @@ installs consumer dependencies, compiles the Go consumer, and checks JavaScript
 imports from the generated package. It does not type-check the TypeScript
 consumer. CI separately rejects uncommitted generated changes.
 
+The TypeScript fixture keeps its lockfile directory local so pnpm resolves the
+file dependency independently of the root workspace. Its pnpm bootstrap lockfile
+is ignored; dependency resolution stays lockfile-free. Update both manifests'
+pnpm versions together; Renovate groups these pins.
+
 ## Review Contract Changes
 
 - Treat every schema change as consumer-facing.
